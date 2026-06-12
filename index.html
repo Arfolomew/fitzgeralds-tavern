@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitzgerald's Irish Tavern | Downtown New Port Richey</title>
+  <meta name="description" content="Downtown New Port Richey's authentic Irish tavern since 2004. Great food, cold pints, live music, and 26 HDTVs for every game day.">
+
+  <!-- JSON-LD: BarOrPub -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["BarOrPub", "Restaurant"],
+    "@id": "https://fitzgeraldstavern.com/#business",
+    "name": "Fitzgerald's Irish Tavern",
+    "description": "One of the longest-running businesses in downtown New Port Richey. Authentic Irish tavern serving craft pints, Irish-inspired pub fare, and live music since 2004. 26 HDTVs for every game day.",
+    "url": "https://fitzgeraldstavern.com",
+    "telephone": "+1-727-816-9092",
+    "image": "https://fitzgeraldstavern.com/assets/hero.jpg",
+    "foundingDate": "2004",
+    "servesCuisine": ["Irish", "Pub Food", "American"],
+    "acceptsReservations": "False",
+    "hasMenu": "https://fitzgeraldstavern.com/menu.html",
+    "priceRange": "$$",
+    "paymentAccepted": "Cash, Credit Card",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.2443,
+      "longitude": -82.7194
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5811 Nebraska Ave",
+      "addressLocality": "New Port Richey",
+      "addressRegion": "FL",
+      "postalCode": "34652",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday"], "opens": "11:00", "closes": "00:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday","Friday","Saturday"], "opens": "11:00", "closes": "02:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "00:00"}
+    ],
+    "sameAs": [
+      "https://www.google.com/maps/place/Fitzgerald's+Irish+Tavern/@28.2443,-82.7194,17z/",
+      "https://www.facebook.com/FitzgeraldsIrishTavern"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "500",
+      "bestRating": "5"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where is Fitzgerald's Irish Tavern located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fitzgerald's Irish Tavern is located at 5811 Nebraska Ave in downtown New Port Richey, Florida 34652. We've been one of the longest-running businesses in downtown New Port Richey since 2004."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Fitzgerald's hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monday through Wednesday: 11AM to midnight. Thursday through Saturday: 11AM to 2AM. Sunday: 11AM to midnight."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Fitzgerald's have live music?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Fitzgerald's hosts live music regularly, featuring local and touring artists. Check our events page for the latest schedule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What kind of food does Fitzgerald's serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve authentic Irish pub fare including fish & chips with Icelandic haddock, shepherd's pie, bangers & mash, and American favorites like burgers, wings, and loaded nachos. Full menu available for dine-in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I watch sports at Fitzgerald's?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We have 26 HDTVs throughout the bar so you can catch every game — NFL, college football, UFC, soccer, and more."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark': '#0f1a14',
+            'dark-surface': '#162019',
+            'primary-green': '#1a5c38',
+            'accent-green': '#2d8a56',
+            'gold': '#c8a951',
+            'cream': '#f5ecd7',
+            'text-light': '#e8dcc8',
+            'text-heading': '#f5ecd7',
+            'dark-text': '#1a1a1a',
+          },
+          fontFamily: {
+            'display': ['"Playfair Display"', 'serif'],
+            'body': ['"DM Sans"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    :root {
+      --dark: #0f1a14;
+      --dark-surface: #162019;
+      --primary-green: #1a5c38;
+      --accent-green: #2d8a56;
+      --gold: #c8a951;
+      --cream: #f5ecd7;
+      --text-light: #e8dcc8;
+      --text-heading: #f5ecd7;
+      --dark-text: #1a1a1a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    .nav-bar {
+      background: rgba(15, 26, 20, 0.97);
+      backdrop-filter: blur(12px);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav-bar.scrolled {
+      background: rgba(15, 26, 20, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+
+    /* ── Hero parallax ── */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/patio2.jpg') center center / cover no-repeat;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 26, 20, 0.55);
+    }
+
+    /* ── Hero text readability ── */
+    .hero-heading {
+      text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.7), 0 0 60px rgba(0,0,0,0.4);
+    }
+
+    /* ── Celtic knot divider ── */
+    .celtic-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      opacity: 0.5;
+    }
+    .celtic-divider .line {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .celtic-divider .knot {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ── Fade-in on scroll ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Menu cards ── */
+    .menu-card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+    .menu-card img {
+      transition: transform 0.5s ease;
+    }
+    .menu-card:hover img {
+      transform: scale(1.07);
+    }
+
+    /* ── Bento gallery ── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .bento-grid .bento-item:nth-child(1) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+    .bento-grid .bento-item:nth-child(2) {
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+    }
+    .bento-grid .bento-item:nth-child(3) {
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+    }
+    .bento-grid .bento-item:nth-child(4) {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+    .bento-grid .bento-item:nth-child(5) {
+      grid-column: 4 / 5;
+      grid-row: 2 / 3;
+    }
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .bento-grid .bento-item:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: auto;
+      }
+      .bento-grid .bento-item:nth-child(2),
+      .bento-grid .bento-item:nth-child(3),
+      .bento-grid .bento-item:nth-child(4),
+      .bento-grid .bento-item:nth-child(5) {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+    .bento-item {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .bento-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+    .bento-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Review quote mark ── */
+    .review-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.35;
+      position: absolute;
+      top: -10px;
+      left: 16px;
+    }
+
+    /* ── Gold CTA button ── */
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-gold:hover {
+      background: #d4b85e;
+      box-shadow: 0 0 24px rgba(200, 169, 81, 0.35);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: rgba(200, 169, 81, 0.12);
+      box-shadow: 0 0 20px rgba(200, 169, 81, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ── Gold accent bar ── */
+    .gold-bar {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* ── Mobile menu ── */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    .mobile-menu a {
+      color: var(--gold);
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .mobile-menu a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .mobile-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* ── Subtle noise texture on dark sections ── */
+    .texture-overlay {
+      position: relative;
+    }
+    .texture-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    .texture-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-green); }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ TOP BAR (Hours) ════════════════ -->
+  <div class="fixed top-0 left-0 w-full z-50 bg-primary-green text-cream text-xs sm:text-sm font-medium tracking-wide" id="topBar">
+    <div class="max-w-7xl mx-auto px-6 py-1.5 flex justify-center items-center gap-2 sm:gap-6">
+      <span>Mon–Wed 11AM–12AM</span>
+      <span class="text-gold">|</span>
+      <span>Thu–Sat 11AM–2AM</span>
+      <span class="text-gold">|</span>
+      <span>Sun 11AM–12AM</span>
+    </div>
+  </div>
+
+  <!-- ════════════════ NAVIGATION ════════════════ -->
+  <nav class="nav-bar fixed left-0 w-full z-50 transition-all duration-300" style="top: 0;" id="mainNav">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 no-underline">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 52" width="292" height="56" class="flex-shrink-0">
+          <!-- Traced shamrock, positioned as nested SVG -->
+          <svg x="0" y="2" width="44" height="44" viewBox="0 0 512 512" overflow="visible">
+            <g transform="translate(256,256) rotate(-15) translate(-256,-256)">
+              <g transform="translate(0,512) scale(0.1,-0.1)" fill="#2d8a56" stroke="none">
+                <path d="M2155 4465 c-173 -38 -304 -120 -432 -271 -30 -35 -64 -69 -76 -76 -12 -6 -80 -15 -152 -19 -230 -14 -364 -68 -501 -204 -64 -63 -90 -98 -123 -165 -93 -191 -94 -393 -1 -585 113 -233 312 -369 735 -499 116 -35 255 -78 310 -95 105 -32 145 -53 145 -76 0 -23 -34 -26 -177 -16 -173 14 -461 14 -573 1 -122 -14 -233 -45 -330 -93 -68 -33 -102 -58 -170 -127 -131 -131 -184 -258 -183 -440 0 -189 65 -342 203 -481 90 -91 163 -138 285 -184 86 -32 95 -40 145 -131 83 -151 194 -257 345 -329 206 -99 424 -101 620 -7 144 70 239 164 315 314 100 195 122 436 75 822 -15 123 -14 166 5 166 17 0 164 -241 235 -385 123 -251 201 -498 241 -764 26 -174 44 -182 218 -96 126 61 146 78 146 120 0 64 -155 413 -280 630 -100 173 -253 397 -357 519 -35 42 -42 66 -19 66 8 0 57 -33 108 -73 145 -113 288 -219 348 -259 205 -134 396 -200 580 -200 186 -1 340 62 467 188 140 139 214 361 184 551 -17 111 -47 193 -102 284 -87 142 -83 124 -49 221 39 111 50 195 39 293 -16 154 -64 258 -170 369 -225 238 -594 251 -885 33 -127 -96 -245 -236 -444 -527 -114 -167 -174 -240 -197 -240 -7 0 -13 7 -13 15 0 8 43 115 96 237 113 261 165 403 202 548 23 91 26 126 27 260 0 169 -9 217 -66 337 -85 178 -274 327 -465 368 -84 18 -228 18 -309 0z"/>
+              </g>
+            </g>
+          </svg>
+          <text x="52" y="26" font-family="'Playfair Display', serif" font-weight="700" font-size="24" fill="#2d8a56">Fitzgerald's</text>
+          <text x="52" y="44" font-family="'DM Sans', sans-serif" font-weight="500" font-size="11" fill="#c8a951" letter-spacing="3">IRISH TAVERN</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Home</a>
+        <a href="menu.html" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Menu</a>
+        <a href="#about" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">About</a>
+        <a href="events.html" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Events</a>
+        <a href="#gallery" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Gallery</a>
+        <a href="tel:+17278169092" class="bg-gold text-dark hover:shadow-[0_0_20px_rgba(200,169,81,0.5)] transition-all duration-300 font-semibold text-sm tracking-wide px-4 py-2 rounded-full inline-flex items-center gap-2">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (727) 816-9092
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="Open menu">
+        <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" id="ham-top"></span>
+        <span class="block w-6 h-0.5 bg-cream transition-all duration-300" id="ham-mid"></span>
+        <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" id="ham-bot"></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Mobile Menu (outside nav for full coverage) -->
+  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 lg:hidden" id="mobileMenu" style="background: var(--dark); min-height: 100vh; min-height: 100dvh;">
+    <a href="#" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">Home</a>
+    <a href="menu.html" class="text-2xl font-display font-700 tracking-wide">Menu</a>
+    <a href="#about" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">About</a>
+    <a href="events.html" class="text-2xl font-display font-700 tracking-wide">Events</a>
+    <a href="#gallery" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">Gallery</a>
+    <a href="tel:+17278169092" class="text-2xl font-display font-700 tracking-wide text-gold" onclick="closeMobile()">(727) 816-9092</a>
+  </div>
+
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero-section h-screen flex items-center justify-center relative">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-3xl">
+      <h1 class="font-display font-900 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cream leading-tight mb-4 hero-heading">
+        Welcome to <span class="text-gold">Fitzgerald's</span>
+      </h1>
+      <p class="font-body text-white text-lg sm:text-xl md:text-2xl mb-2 tracking-wide" style="text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 4px 30px rgba(0,0,0,0.7);">
+        Downtown New Port Richey's <br class="sm:hidden">Authentic Irish Tavern
+      </p>
+      <p class="font-body text-gold text-sm md:text-base tracking-widest uppercase mb-10 hero-heading">
+        <span style="background: rgba(15, 26, 20, 0.5); padding: 4px 16px; border-radius: 4px; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);">Est. 2004</span>
+      </p>
+
+      <!-- Celtic knot divider -->
+      <div class="celtic-divider mb-10" style="opacity: 0.85;">
+        <div class="line" style="width: 100px;"></div>
+        <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; filter: drop-shadow(0 0 6px rgba(200,169,81,0.4));">
+          <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
+          <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
+          <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
+          <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
+        </svg>
+        <div class="line" style="width: 100px;"></div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="menu.html" class="btn-gold text-base w-1/2 sm:w-auto text-center">View Our Menu</a>
+        <a href="tel:+17278169092" class="text-base w-1/2 sm:w-auto text-center inline-block font-semibold rounded-md transition-all duration-300 hover:-translate-y-0.5" style="background: var(--primary-green); color: var(--gold); padding: 14px 32px; text-decoration: none;">Call Us</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="2" stroke-linecap="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ ABOUT TEASER ════════════════ -->
+  <section id="about" class="bg-dark texture-overlay py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="fade-up">
+        <div class="gold-bar"></div>
+        <h2 class="font-display font-700 text-3xl sm:text-4xl lg:text-5xl text-cream leading-snug mb-6">
+          A New Port Richey <span class="text-gold">Tradition</span> Since 2004
+        </h2>
+        <p class="text-text-light text-lg leading-relaxed mb-8">
+          For over two decades, Fitzgerald's Irish Tavern has been the heart of downtown New Port Richey. From our signature fish and chips to craft cocktails on the patio, we're where the community comes together &mdash; for great food, cold pints, and unforgettable nights.
+        </p>
+        <p class="text-text-light text-lg leading-relaxed mb-8">
+          Whether you're catching the game on one of our 26 HDTVs or enjoying live music under the stars, there's always a seat at our table.
+        </p>
+        <a href="#contact" class="text-gold hover:text-cream transition-colors font-medium inline-flex items-center gap-2 group">
+          Our Story
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
+            <path d="M4 10h12M12 4l6 6-6 6"/>
+          </svg>
+        </a>
+      </div>
+      <div class="fade-up">
+        <div class="rounded-xl overflow-hidden shadow-2xl">
+          <img src="assets/patio4.jpg" alt="Front of Fitzgerald's Irish Tavern building showing the iconic logo sign" class="w-full h-auto object-cover" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ MENU HIGHLIGHTS ════════════════ -->
+  <section class="bg-dark-surface texture-overlay py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">From Our Kitchen</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
+        <!-- Fish & Chips -->
+        <div class="menu-card bg-dark rounded-xl overflow-hidden shadow-lg fade-up">
+          <div class="overflow-hidden h-56">
+            <img src="assets/fish-chips.webp" alt="Beer-battered fish and chips with tartar sauce" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display font-700 text-xl text-gold">Fish &amp; Chips</h3>
+              <span class="font-display text-gold text-lg">$15</span>
+            </div>
+            <p class="text-text-light text-sm leading-relaxed">Beer-battered Icelandic haddock, golden fries, house tartar &amp; coleslaw</p>
+          </div>
+        </div>
+
+        <!-- Shepherd's Pie -->
+        <div class="menu-card bg-dark rounded-xl overflow-hidden shadow-lg fade-up" style="transition-delay: 0.1s;">
+          <div class="overflow-hidden h-56">
+            <img src="stock/shepards-pie.webp" alt="Classic shepherd's pie with mashed potato topping" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display font-700 text-xl text-gold">Shepherd's Pie</h3>
+              <span class="font-display text-gold text-lg">$13</span>
+            </div>
+            <p class="text-text-light text-sm leading-relaxed">Classic Irish comfort &mdash; seasoned lamb and vegetables topped with creamy mashed potatoes, finished with rich Guinness gravy</p>
+          </div>
+        </div>
+
+        <!-- Wings -->
+        <div class="menu-card bg-dark rounded-xl overflow-hidden shadow-lg fade-up" style="transition-delay: 0.2s;">
+          <div class="overflow-hidden h-56">
+            <img src="assets/fitzies-wings.jpg" alt="Fitzgerald's famous wings with sauce options" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display font-700 text-xl text-gold">Fitzies Wings</h3>
+              <span class="font-display text-gold text-lg">$8</span>
+            </div>
+            <p class="text-text-light text-sm leading-relaxed">Our famous wings tossed in your choice of mild, hot, BBQ, honey BBQ, blackened, or mango habanero</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 fade-up">
+        <a href="menu.html" class="text-gold hover:text-cream transition-colors font-semibold text-lg inline-flex items-center gap-2 group">
+          View Full Menu
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
+            <path d="M4 10h12M12 4l6 6-6 6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ GALLERY / ATMOSPHERE ════════════════ -->
+  <section id="gallery" class="bg-cream py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-dark-text mb-4">The Fitzperience</h2>
+        <div class="celtic-divider">
+          <div class="line" style="background: #1a5c38;"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line" style="background: #1a5c38;"></div>
+        </div>
+      </div>
+
+      <div class="bento-grid fade-up">
+        <div class="bento-item" style="min-height: 320px;">
+          <img src="assets/interior3.jpg" alt="Group of friends enjoying drinks at Fitzgerald's bar with Guinness signs" loading="lazy">
+        </div>
+        <div class="bento-item" style="min-height: 180px;">
+          <img src="assets/interior2.jpg" alt="Sports fans watching the game at the bar" loading="lazy">
+        </div>
+        <div class="bento-item" style="min-height: 180px;">
+          <img src="assets/guiness.jpg" alt="Guinness on tap at Fitzgerald's" loading="lazy">
+        </div>
+        <div class="bento-item" style="min-height: 180px;">
+          <img src="assets/interior4.jpg" alt="Regulars enjoying drinks at the bar" loading="lazy">
+        </div>
+        <div class="bento-item" style="min-height: 180px;">
+          <img src="assets/fitz-bartenders.jpg" alt="Fitzgerald's bartenders serving up drinks" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ REVIEWS ════════════════ -->
+  <section class="bg-dark texture-overlay py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">What People Are Saying</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-dark-surface rounded-xl p-8 relative fade-up">
+          <span class="review-quote">&ldquo;</span>
+          <p class="text-text-light italic leading-relaxed mt-6 mb-6">An absolute gem in downtown NPR. The fish and chips are the best I've ever had, and the staff treats you like family. Kenna and Koral are amazing!</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-0.5 bg-gold"></div>
+            <div>
+              <p class="text-cream font-medium text-sm">Sarah M.</p>
+              <p class="text-gold/60 text-xs">Yelp</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-dark-surface rounded-xl p-8 relative fade-up" style="transition-delay: 0.1s;">
+          <span class="review-quote">&ldquo;</span>
+          <p class="text-text-light italic leading-relaxed mt-6 mb-6">Truly an authentic Irish tavern experience. The Mulligan stew and Shepherd's pie are incredible. Great craft cocktails too &mdash; the Moscow mule is perfect.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-0.5 bg-gold"></div>
+            <div>
+              <p class="text-cream font-medium text-sm">Mike R.</p>
+              <p class="text-gold/60 text-xs">TripAdvisor</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-dark-surface rounded-xl p-8 relative fade-up" style="transition-delay: 0.2s;">
+          <span class="review-quote">&ldquo;</span>
+          <p class="text-text-light italic leading-relaxed mt-6 mb-6">Our go-to spot for every game day. 26 TVs, cold beer, and the best wings in town. We've been regulars for 10 years and it never disappoints.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-0.5 bg-gold"></div>
+            <div>
+              <p class="text-cream font-medium text-sm">Dave L.</p>
+              <p class="text-gold/60 text-xs">Google</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Read More Reviews Button -->
+      <div class="text-center mt-12 fade-up">
+        <a href="https://www.google.com/maps/place/Fitzgerald's+Irish+Tavern/@28.2443,-82.7194,17z/" target="_blank" rel="noopener noreferrer" class="btn-outline inline-flex items-center gap-2">
+          Read More Reviews
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ EVENTS & ENTERTAINMENT ════════════════ -->
+  <section id="events" class="bg-dark-surface texture-overlay py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="fade-up order-2 md:order-1">
+        <div class="gold-bar"></div>
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-cream leading-snug mb-8">
+          More Than Just <span class="text-gold">a Pub</span>
+        </h2>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-text-light text-lg">
+            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
+            Live music &amp; entertainment
+          </li>
+          <li class="flex items-start gap-3 text-text-light text-lg">
+            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
+            Trivia nights
+          </li>
+          <li class="flex items-start gap-3 text-text-light text-lg">
+            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
+            All major sports packages on 26 HDTVs
+          </li>
+          <li class="flex items-start gap-3 text-text-light text-lg">
+            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
+            Private event spaces &mdash; from birthdays to corporate gatherings
+          </li>
+          <li class="flex items-start gap-3 text-text-light text-lg">
+            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
+            Annual Finnegan's Wake celebration &mdash; our legendary St. Patrick's Day tradition
+          </li>
+        </ul>
+        <a href="events.html" class="btn-gold">See What's Coming Up</a>
+      </div>
+      <div class="fade-up order-1 md:order-2">
+        <div class="rounded-xl overflow-hidden shadow-2xl">
+          <img src="assets/patio3.jpg" alt="Massive St. Patrick's Day crowd celebrating at Fitzgerald's" class="w-full h-auto object-cover" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════ CONTACT / HOURS FOOTER ════════════════ -->
+  <section id="contact" class="bg-dark py-24 sm:py-32 border-t border-primary-green/20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 lg:gap-16 fade-up">
+        <!-- Visit Us -->
+        <div>
+          <h3 class="font-display font-700 text-2xl text-gold mb-6">Visit Us</h3>
+          <address class="not-italic text-text-light leading-relaxed space-y-3">
+            <p>5811 Nebraska Ave<br>New Port Richey, FL 34652</p>
+            <p>
+              <a href="tel:+17278169092" class="text-cream hover:text-gold transition-colors">(727) 816-9092</a>
+            </p>
+          </address>
+          <a href="https://maps.google.com/?q=5811+Nebraska+Ave+New+Port+Richey+FL+34652" target="_blank" rel="noopener" class="text-gold hover:text-cream transition-colors font-medium inline-flex items-center gap-2 mt-4 group text-sm">
+            Get Directions
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
+              <path d="M4 10h12M12 4l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Hours -->
+        <div>
+          <h3 class="font-display font-700 text-2xl text-gold mb-6">Hours</h3>
+          <div class="space-y-2 text-text-light">
+            <div class="flex justify-between">
+              <span>Monday &ndash; Wednesday</span>
+              <span class="text-cream">11AM &ndash; 12AM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Thursday &ndash; Saturday</span>
+              <span class="text-cream">11AM &ndash; 2AM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Sunday</span>
+              <span class="text-cream">11AM &ndash; 12AM</span>
+            </div>
+          </div>
+          <p class="text-text-light/60 text-sm mt-4 italic">Kitchen open until 10pm Sun&ndash;Thu, midnight Fri&ndash;Sat</p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+          <h3 class="font-display font-700 text-2xl text-gold mb-6">Follow Us</h3>
+          <div class="flex gap-4 mb-6">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-primary-green/30 flex items-center justify-center text-cream hover:bg-gold hover:text-dark transition-all duration-300" aria-label="Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-primary-green/30 flex items-center justify-center text-cream hover:bg-gold hover:text-dark transition-all duration-300" aria-label="Instagram">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+          <p class="text-text-light text-sm leading-relaxed">Tag us <span class="text-gold">@fitzgeraldsirishtavern</span> for a chance to be featured!</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gold/20 mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-text-light/50 text-sm">&copy; 2026 Fitzgerald's Irish Tavern. All rights reserved.</p>
+        <p class="text-text-light/40 text-sm">
+          Website by <a href="https://onpointfl.com" target="_blank" rel="noopener" class="text-gold/60 hover:text-gold transition-colors">On Point Digital Studio</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ SCRIPTS ════════════════ -->
+  <script>
+    // ── Position nav below top bar ──
+    const topBar = document.getElementById('topBar');
+    const nav = document.getElementById('mainNav');
+    function syncNavPosition() {
+      const topBarHeight = topBar.offsetHeight;
+      nav.style.top = topBarHeight + 'px';
+    }
+    syncNavPosition();
+    window.addEventListener('resize', syncNavPosition);
+
+    // ── Nav scroll effect ──
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // ── Hero parallax ──
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      if (scrolled < window.innerHeight) {
+        heroBg.style.transform = `translateY(${scrolled * 0.35}px)`;
+      }
+    });
+
+    // ── Mobile menu ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const hamTop = document.getElementById('ham-top');
+    const hamMid = document.getElementById('ham-mid');
+    const hamBot = document.getElementById('ham-bot');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        mobileOverlay.classList.remove('hidden');
+        hamTop.style.transform = 'rotate(45deg) translate(4px, 4px)';
+        hamMid.style.opacity = '0';
+        hamBot.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        document.body.style.overflow = 'hidden';
+      } else {
+        closeMobile();
+      }
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.add('hidden');
+      hamTop.style.transform = '';
+      hamMid.style.opacity = '';
+      hamBot.style.transform = '';
+      document.body.style.overflow = '';
+    }
+
+    // ── Intersection Observer for fade-in ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

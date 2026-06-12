@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Service Agreement — On Point Digital Studio &amp; Fitzgerald's Irish Tavern</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+  @page { margin: 0.75in; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .page {
+    width: 7in;
+    min-height: 9in;
+    max-height: 9.5in;
+    overflow: hidden;
+    page-break-after: always;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .page:last-child { page-break-after: auto; }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding: 0 0 18px;
+    border-bottom: 2px solid #1a5c38;
+    margin-bottom: 22px;
+  }
+
+  .header .brand {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a5c38;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f1a14;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .header .date {
+    font-size: 12px;
+    color: #777;
+  }
+
+  /* ── Section headers ── */
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a5c38;
+    margin: 20px 0 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #d4e8dc;
+  }
+
+  h2:first-of-type { margin-top: 0; }
+
+  /* ── Parties section ── */
+  .parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 4px;
+  }
+
+  .party-box {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .party-box .label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1a5c38;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .party-box .name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f1a14;
+    margin-bottom: 2px;
+  }
+
+  .party-box .detail {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* ── Content ── */
+  p { margin-bottom: 8px; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px;
+  }
+
+  ul li {
+    padding: 3px 0 3px 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  ul li::before {
+    content: "\2022";
+    position: absolute;
+    left: 2px;
+    color: #1a5c38;
+    font-weight: 700;
+  }
+
+  /* ── Pricing callout ── */
+  .pricing-box {
+    border: 2px solid #1a5c38;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid #e8e2d8;
+  }
+
+  .pricing-row:last-child { border-bottom: none; }
+
+  .pricing-label {
+    font-weight: 600;
+    color: #0f1a14;
+  }
+
+  .pricing-amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a5c38;
+  }
+
+  .pricing-note {
+    font-size: 12px;
+    color: #777;
+    margin-top: 8px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── Included / Not included columns ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 8px 0;
+  }
+
+  .col-box {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .col-box h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid;
+  }
+
+  .col-box.included h3 { color: #1a5c38; border-color: #2d8a56; }
+  .col-box.excluded h3 { color: #666; border-color: #ccc; }
+
+  .col-box ul { margin: 0; }
+
+  .col-box ul li {
+    font-size: 13px;
+    padding: 2px 0 2px 14px;
+  }
+
+  .col-box.excluded ul li::before { color: #999; }
+
+  /* ── Signature area ── */
+  .signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 24px;
+    padding-top: 16px;
+  }
+
+  .sig-block .sig-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1a5c38;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid #333;
+    margin-bottom: 4px;
+    height: 28px;
+  }
+
+  .sig-field {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 16px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 10px;
+    color: #999;
+    border-top: 1px solid #ddd;
+    padding-top: 8px;
+  }
+
+  .footer .brand {
+    color: #1a5c38;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 9px;
+  }
+
+  .page-num {
+    font-size: 10px;
+    color: #bbb;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  /* ── Print tweaks ── */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { margin: 0; }
+  }
+
+  /* ── Screen preview padding ── */
+  @media screen {
+    body { padding: 20px 0; background: #f0f0f0; }
+    .page {
+      background: #fff;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+      margin: 0 auto 30px;
+      padding: 0.75in;
+      min-height: auto;
+      max-height: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ PAGE 1 ═══════════════════ -->
+<div class="page">
+
+  <div class="header">
+    <div class="brand">On Point Digital Studio</div>
+    <h1>Service Agreement</h1>
+    <p class="date">Effective Date: ____________________</p>
+  </div>
+
+  <p>This Service Agreement ("Agreement") is entered into by the following parties:</p>
+
+  <div class="parties">
+    <div class="party-box">
+      <div class="label">Provider</div>
+      <div class="name">On Point Digital Studio LLC</div>
+      <div class="detail">New Port Richey, FL<br>onpointfl.com</div>
+    </div>
+    <div class="party-box">
+      <div class="label">Client</div>
+      <div class="name">Fitzgerald's Irish Tavern</div>
+      <div class="detail">Owner: Sherry Kuntz<br>New Port Richey, FL</div>
+    </div>
+  </div>
+
+  <h2>Scope of Work</h2>
+  <p>On Point Digital Studio ("Provider") agrees to deliver the following services for Fitzgerald's Irish Tavern ("Client"):</p>
+  <ul>
+    <li>Custom website design and development (single-page home + full menu page)</li>
+    <li>Responsive design optimized for mobile, tablet, and desktop</li>
+    <li>Domain transfer from GoDaddy to Porkbun (at client's request)</li>
+    <li>DNS configuration and Cloudflare CDN setup</li>
+    <li>SSL certificate (included with Cloudflare, free of charge)</li>
+    <li>Google Analytics setup and integration</li>
+    <li>Schema markup (LocalBusiness + Restaurant structured data)</li>
+    <li>SEO-optimized meta tags, headings, and page structure</li>
+  </ul>
+
+  <h2>Pricing</h2>
+  <div class="pricing-box">
+    <div class="pricing-row">
+      <span class="pricing-label">One-Time Website Build</span>
+      <span class="pricing-amount">$800.00</span>
+    </div>
+    <div class="pricing-row">
+      <span class="pricing-label">Monthly Hosting &amp; Maintenance</span>
+      <span class="pricing-amount">$25.00/mo</span>
+    </div>
+    <p class="pricing-note">No upfront payment required. Build fee is due upon client satisfaction.<br>Monthly hosting begins after the site goes live. Payments processed via Stripe.</p>
+  </div>
+
+  <h2>What's Included in Monthly Hosting</h2>
+  <div class="two-col">
+    <div class="col-box included">
+      <h3>Included ($25/mo)</h3>
+      <ul>
+        <li>Cloudflare Pages hosting (global CDN, DDoS protection, 99.9% uptime)</li>
+        <li>SSL certificate maintenance</li>
+        <li>Design changes, text updates, and photo swaps — completed within 24 to 48 hours</li>
+        <li>Domain registration and renewal (covered by Provider at no cost to Client)</li>
+        <li>Monthly uptime monitoring</li>
+      </ul>
+    </div>
+    <div class="col-box excluded">
+      <h3>Not Included</h3>
+      <ul>
+        <li>Content creation or copywriting beyond initial build</li>
+        <li>Photography or video production</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-num">1 of 3</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PAGE 2 ═══════════════════ -->
+<div class="page">
+
+  <h2>Ownership</h2>
+  <ul>
+    <li>Client owns their domain name and all original content at all times.</li>
+    <li>Client may request and receive all website files at any time.</li>
+    <li>If Client cancels hosting, Provider will deliver a complete copy of all site files within 7 business days.</li>
+    <li>Provider retains the right to display the completed work in its portfolio and marketing materials.</li>
+  </ul>
+
+  <h2>Timeline</h2>
+  <ul>
+    <li>Estimated completion: 1 to 2 weeks from receipt of all required assets.</li>
+    <li>Timeline is dependent on Client providing: menu updates, photos, and design feedback in a timely manner.</li>
+    <li>Provider will communicate progress and request feedback at key milestones.</li>
+  </ul>
+
+  <h2>Payment Terms</h2>
+  <ul>
+    <li>The one-time build fee of $800.00 is due only after Client is satisfied with the completed website.</li>
+    <li>Monthly hosting of $25.00 begins on the date the site goes live and is billed on the same date each month.</li>
+    <li>All payments are processed securely through Stripe.</li>
+    <li>If a monthly payment fails, Provider will attempt to reach Client before taking any action on the site.</li>
+  </ul>
+
+  <h2>Termination</h2>
+  <ul>
+    <li>Either party may cancel this agreement with 30 days written notice (email is fine).</li>
+    <li>There are no long-term contracts. Hosting is month-to-month after the initial build.</li>
+    <li>Upon cancellation, Client receives all site files within 7 business days at no additional charge.</li>
+    <li>Any outstanding balance for work already completed remains due upon termination.</li>
+  </ul>
+
+  <h2>Limitation of Liability</h2>
+  <p>Provider's total liability under this agreement shall not exceed the total fees paid by Client in the 12 months preceding any claim. Provider is not liable for any loss of revenue, data, or business opportunities arising from website downtime caused by third-party services (Cloudflare, domain registrars, etc.).</p>
+
+  <h2>Modifications</h2>
+  <p>Any changes to this agreement must be agreed upon in writing by both parties. An email exchange confirming the change is sufficient.</p>
+
+  <h2>Governing Law</h2>
+  <p>This agreement is governed by the laws of the State of Florida. Any disputes will be resolved in Pasco County, Florida.</p>
+
+  <div class="page-num">2 of 3</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PAGE 3 ═══════════════════ -->
+<div class="page">
+
+  <h2>Agreement Summary</h2>
+  <p>By signing below, both parties agree to the terms outlined in this Service Agreement. This is a straightforward, good-faith arrangement. No fine print, no surprises.</p>
+
+  <div class="pricing-box" style="margin: 16px 0 20px;">
+    <div class="pricing-row">
+      <span class="pricing-label">Website Build (one-time)</span>
+      <span class="pricing-amount">$800.00</span>
+    </div>
+    <div class="pricing-row">
+      <span class="pricing-label">Hosting &amp; Maintenance (monthly)</span>
+      <span class="pricing-amount">$25.00/mo</span>
+    </div>
+    <div class="pricing-row">
+      <span class="pricing-label">Upfront Payment Required</span>
+      <span class="pricing-amount" style="color: #0f1a14;">None</span>
+    </div>
+  </div>
+
+  <div class="signatures">
+    <div class="sig-block">
+      <div class="sig-label">Provider</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Signature</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Printed Name</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Title</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Client</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Signature</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Printed Name</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Title</div>
+      <div class="sig-line"></div>
+      <div class="sig-field">Date</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand">ON POINT DIGITAL STUDIO</div>
+    <div>onpointfl.com &middot; New Port Richey, FL</div>
+  </div>
+
+  <div class="page-num">3 of 3</div>
+</div>
+
+</body>
+</html>

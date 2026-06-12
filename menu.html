@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Fitzgerald's Irish Tavern | Downtown New Port Richey</title>
+  <meta name="description" content="Explore the full menu at Fitzgerald's Irish Tavern — authentic Irish favorites, char-grilled burgers, fresh seafood, and more in downtown New Port Richey.">
+
+  <!-- JSON-LD: Menu -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Fitzgerald's Irish Tavern Menu",
+    "description": "Authentic Irish fare and American favorites, made fresh daily in downtown New Port Richey.",
+    "inLanguage": "en",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Appetizers",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Irish Nachos", "description": "Sidewinder fries topped with house made Irish chili, cheddar jack cheese, tomatoes, onions, sliced jalapeños & sour cream"},
+          {"@type": "MenuItem", "name": "Smoked Salmon Appetizer", "description": "House smoked Atlantic salmon"},
+          {"@type": "MenuItem", "name": "Wings", "description": "Crispy wings with choice of sauce"}
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Irish Favorites",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Fish & Chips", "description": "Beer-battered Icelandic haddock, golden fries, house tartar & coleslaw"},
+          {"@type": "MenuItem", "name": "Shepherd's Pie", "description": "Traditional Irish shepherd's pie"},
+          {"@type": "MenuItem", "name": "Bangers & Mash", "description": "Irish sausages with mashed potatoes and gravy"}
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Sandwiches",
+        "description": "Served with choice of side"
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Char-Grill",
+        "description": "Char-grilled burgers and more"
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Entrees",
+        "description": "Full dinner entrees"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fitzgeraldstavern.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Menu", "item": "https://fitzgeraldstavern.com/menu.html"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark': '#0f1a14',
+            'dark-surface': '#162019',
+            'primary-green': '#1a5c38',
+            'accent-green': '#2d8a56',
+            'gold': '#c8a951',
+            'cream': '#f5ecd7',
+            'text-light': '#e8dcc8',
+            'text-heading': '#f5ecd7',
+            'dark-text': '#1a1a1a',
+          },
+          fontFamily: {
+            'display': ['"Playfair Display"', 'serif'],
+            'body': ['"DM Sans"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    :root {
+      --dark: #0f1a14;
+      --dark-surface: #162019;
+      --primary-green: #1a5c38;
+      --accent-green: #2d8a56;
+      --gold: #c8a951;
+      --cream: #f5ecd7;
+      --text-light: #e8dcc8;
+      --text-heading: #f5ecd7;
+      --dark-text: #1a1a1a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    .nav-bar {
+      background: rgba(15, 26, 20, 0);
+      backdrop-filter: blur(0px);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav-bar.scrolled {
+      background: rgba(15, 26, 20, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+
+    /* ── Hero ── */
+    .menu-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/menu-header.jpg') center center / cover no-repeat;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    .menu-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(15, 26, 20, 0.95) 0%,
+        rgba(15, 26, 20, 0.7) 40%,
+        rgba(15, 26, 20, 0.45) 100%
+      );
+    }
+
+    /* ── Celtic knot divider ── */
+    .celtic-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      opacity: 0.5;
+    }
+    .celtic-divider .line {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .celtic-divider .knot {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ── Fade-in on scroll ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Gold CTA button ── */
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-gold:hover {
+      background: #d4b85e;
+      box-shadow: 0 0 24px rgba(200, 169, 81, 0.35);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: rgba(200, 169, 81, 0.12);
+      box-shadow: 0 0 20px rgba(200, 169, 81, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ── Gold accent bar ── */
+    .gold-bar {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* ── Mobile menu ── */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    .mobile-menu a {
+      color: var(--gold);
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .mobile-menu a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .mobile-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* ── Texture overlay ── */
+    .texture-overlay {
+      position: relative;
+    }
+    .texture-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    .texture-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Scroll offset for sticky nav + category nav ── */
+    #appetizers, #soups-salads, #irish-favorites, #sandwiches, #char-grill, #entrees {
+      scroll-margin-top: 160px;
+    }
+
+    /* ── Category nav ── */
+    .category-nav {
+      transition: box-shadow 0.3s ease;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .category-nav::-webkit-scrollbar {
+      display: none;
+    }
+    .category-nav.stuck {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .cat-btn {
+      white-space: nowrap;
+      padding: 10px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--text-light);
+      border-radius: 4px;
+      transition: color 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      letter-spacing: 0.5px;
+    }
+    .cat-btn:hover {
+      color: var(--gold);
+    }
+    .cat-btn.active {
+      color: var(--dark);
+      background: var(--gold);
+    }
+
+    /* ── Menu item dotted leader ── */
+    .menu-leader {
+      flex: 1;
+      border-bottom: 1px dotted rgba(200, 169, 81, 0.3);
+      margin: 0 12px;
+      min-width: 20px;
+      align-self: flex-end;
+      margin-bottom: 5px;
+    }
+
+    /* ── Featured item card ── */
+    .featured-item {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .featured-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .featured-item img {
+      transition: transform 0.5s ease;
+    }
+    .featured-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ── Back to top ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      z-index: 40;
+      cursor: pointer;
+      border: none;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: #d4b85e;
+      box-shadow: 0 0 24px rgba(200, 169, 81, 0.35);
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-green); }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ TOP BAR (Hours) ════════════════ -->
+  <div class="fixed top-0 left-0 w-full z-50 bg-primary-green text-cream text-xs sm:text-sm font-medium tracking-wide" id="topBar">
+    <div class="max-w-7xl mx-auto px-6 py-1.5 flex justify-center items-center gap-2 sm:gap-6">
+      <span>Mon–Wed 11AM–12AM</span>
+      <span class="text-gold">|</span>
+      <span>Thu–Sat 11AM–2AM</span>
+      <span class="text-gold">|</span>
+      <span>Sun 11AM–12AM</span>
+    </div>
+  </div>
+
+  <!-- ════════════════ NAVIGATION ════════════════ -->
+  <nav class="nav-bar fixed left-0 w-full z-50 transition-all duration-300" style="top: 0;" id="mainNav">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 no-underline">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 52" width="292" height="56" class="flex-shrink-0">
+          <svg x="0" y="2" width="44" height="44" viewBox="0 0 512 512" overflow="visible">
+            <g transform="translate(256,256) rotate(-15) translate(-256,-256)">
+              <g transform="translate(0,512) scale(0.1,-0.1)" fill="#2d8a56" stroke="none">
+                <path d="M2155 4465 c-173 -38 -304 -120 -432 -271 -30 -35 -64 -69 -76 -76 -12 -6 -80 -15 -152 -19 -230 -14 -364 -68 -501 -204 -64 -63 -90 -98 -123 -165 -93 -191 -94 -393 -1 -585 113 -233 312 -369 735 -499 116 -35 255 -78 310 -95 105 -32 145 -53 145 -76 0 -23 -34 -26 -177 -16 -173 14 -461 14 -573 1 -122 -14 -233 -45 -330 -93 -68 -33 -102 -58 -170 -127 -131 -131 -184 -258 -183 -440 0 -189 65 -342 203 -481 90 -91 163 -138 285 -184 86 -32 95 -40 145 -131 83 -151 194 -257 345 -329 206 -99 424 -101 620 -7 144 70 239 164 315 314 100 195 122 436 75 822 -15 123 -14 166 5 166 17 0 164 -241 235 -385 123 -251 201 -498 241 -764 26 -174 44 -182 218 -96 126 61 146 78 146 120 0 64 -155 413 -280 630 -100 173 -253 397 -357 519 -35 42 -42 66 -19 66 8 0 57 -33 108 -73 145 -113 288 -219 348 -259 205 -134 396 -200 580 -200 186 -1 340 62 467 188 140 139 214 361 184 551 -17 111 -47 193 -102 284 -87 142 -83 124 -49 221 39 111 50 195 39 293 -16 154 -64 258 -170 369 -225 238 -594 251 -885 33 -127 -96 -245 -236 -444 -527 -114 -167 -174 -240 -197 -240 -7 0 -13 7 -13 15 0 8 43 115 96 237 113 261 165 403 202 548 23 91 26 126 27 260 0 169 -9 217 -66 337 -85 178 -274 327 -465 368 -84 18 -228 18 -309 0z"/>
+              </g>
+            </g>
+          </svg>
+          <text x="52" y="26" font-family="'Playfair Display', serif" font-weight="700" font-size="24" fill="#2d8a56">Fitzgerald's</text>
+          <text x="52" y="44" font-family="'DM Sans', sans-serif" font-weight="500" font-size="11" fill="#c8a951" letter-spacing="3">IRISH TAVERN</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Home</a>
+        <a href="menu.html" class="text-gold font-medium text-sm tracking-wide">Menu</a>
+        <a href="index.html#about" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">About</a>
+        <a href="events.html" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Events</a>
+        <a href="index.html#gallery" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Gallery</a>
+        <a href="tel:+17278169092" class="bg-gold text-dark hover:shadow-[0_0_20px_rgba(200,169,81,0.5)] transition-all duration-300 font-semibold text-sm tracking-wide px-4 py-2 rounded-full inline-flex items-center gap-2">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (727) 816-9092
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="Open menu">
+        <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" id="ham-top"></span>
+        <span class="block w-6 h-0.5 bg-cream transition-all duration-300" id="ham-mid"></span>
+        <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" id="ham-bot"></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Mobile Menu (outside nav for full coverage) -->
+  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 lg:hidden" id="mobileMenu" style="background: var(--dark); min-height: 100vh; min-height: 100dvh;">
+    <a href="index.html" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">Home</a>
+    <a href="menu.html" class="text-2xl font-display font-700 tracking-wide">Menu</a>
+    <a href="index.html#about" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">About</a>
+    <a href="events.html" class="text-2xl font-display font-700 tracking-wide">Events</a>
+    <a href="index.html#gallery" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">Gallery</a>
+    <a href="tel:+17278169092" class="text-2xl font-display font-700 tracking-wide text-gold" onclick="closeMobile()">(727) 816-9092</a>
+  </div>
+
+
+  <!-- ════════════════ MENU HERO ════════════════ -->
+  <section class="menu-hero h-[45vh] min-h-[320px] flex items-center justify-center relative">
+    <div class="menu-hero-bg" id="heroBg"></div>
+    <div class="menu-hero-overlay"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-3xl">
+      <h1 class="font-display font-900 text-4xl sm:text-5xl md:text-6xl text-cream leading-tight mb-4">
+        Our <span class="text-gold">Menu</span>
+      </h1>
+      <p class="font-body text-text-light text-lg sm:text-xl mb-6 tracking-wide">
+        Authentic Irish fare &amp; American favorites, made fresh daily
+      </p>
+
+      <!-- Celtic knot divider -->
+      <div class="celtic-divider">
+        <div class="line"></div>
+        <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="line"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ CATEGORY NAV (STICKY) ════════════════ -->
+  <div class="category-nav sticky z-30 bg-dark-surface/95 backdrop-blur-md border-b border-gold/10" id="categoryNav" style="top: 72px;">
+    <div class="max-w-7xl mx-auto px-4 flex lg:justify-center gap-1 overflow-x-auto py-2">
+      <button class="cat-btn active" data-target="appetizers">Appetizers</button>
+      <button class="cat-btn" data-target="soups-salads">Soups &amp; Salads</button>
+      <button class="cat-btn" data-target="irish-favorites">Irish Favorites</button>
+      <button class="cat-btn" data-target="sandwiches">Sandwiches</button>
+      <button class="cat-btn" data-target="char-grill">From the Char-Grill</button>
+      <button class="cat-btn" data-target="entrees">Entrees</button>
+    </div>
+  </div>
+
+
+  <!-- ════════════════ APPETIZERS ════════════════ -->
+  <section id="appetizers" class="bg-dark texture-overlay py-20 sm:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">Appetizers</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <!-- Featured: Wings with photo -->
+      <div class="featured-item bg-dark-surface rounded-xl overflow-hidden shadow-lg mb-8 fade-up md:flex">
+        <div class="overflow-hidden md:w-64 md:flex-shrink-0 h-48 md:h-auto">
+          <img src="assets/fitzies-wings.jpg" alt="Fitzgerald's famous wings" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-6 flex flex-col justify-center flex-1">
+          <div class="flex items-baseline mb-2">
+            <h3 class="font-display font-700 text-xl text-gold">Fitzies Wings</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">5 / $8 &middot; 10 / $14</span>
+          </div>
+          <p class="text-text-light text-sm leading-relaxed">Jumbo chicken wings cooked golden brown. Served with celery and bleu cheese or ranch. Mild, Hot, BBQ, Honey BBQ, Blackened, Mango Habanero, Sweet Chili, Kick'n Bourbon, Garlic Parm, Everything Bagel, or Old Bay</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Cheddar Bacon Fries</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$11</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Crispy french fries topped with crispy bacon and cheddar jack cheese</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Fried Cauliflower</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Basket of fried cauliflower served plain, with spicy ranch or tossed buffalo style with ranch or bleu cheese</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Chicken Go Bragh</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Grilled strips of marinated chicken breast served with honey mustard. Blackened, lime pepper or plain grilled</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Fried Chicken Tenders</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$12</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Breaded chicken tenders served with honey mustard or BBQ</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Irish Nachos</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Sidewinder fries topped with our house made Irish chili, cheddar jack cheese, tomatoes, onions, sliced jalape&ntilde;os &amp; sour cream</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Smoked Salmon Appetizer</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$15</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Sliced smoked salmon served with cream cheese, capers, red onion, hard-boiled egg and toast points</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Mozzarella Cheese Sticks</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Served with warm marinara</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ SOUPS & SALADS ════════════════ -->
+  <section id="soups-salads" class="bg-dark-surface texture-overlay py-20 sm:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">Soups &amp; Salads</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Homemade Irish Chili</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$7</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Topped with melted cheddar jack cheese, diced onions &amp; jalape&ntilde;os</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Hearty French Onion Soup</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$7</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Sherry caramelized onions served gratinéed over a homemade crouton</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Fitz's House Salad</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$7</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Chopped romaine topped with diced tomatoes, onions, grated cheddar jack cheese &amp; croutons. Choice of dressing</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">House Caesar Salad</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$7</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Hearts of romaine tossed with grated parmesan cheese, croutons &amp; creamy Caesar dressing</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Irish Chef Salad</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Chopped romaine topped with pastrami, turkey, Swiss cheese, tomatoes, onions, hard-boiled eggs &amp; bacon</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Grilled Chicken Cobb Salad</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Chopped romaine topped with grilled chicken breast, bacon, blue cheese crumbles, sliced hard-boiled egg, diced onion &amp; tomatoes. Choice of dressing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ IRISH FAVORITES ════════════════ -->
+  <section id="irish-favorites" class="bg-dark texture-overlay py-20 sm:py-24 border-t border-b border-gold/10">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 fade-up">
+        <p class="font-body text-gold/70 text-sm tracking-widest uppercase mb-3">House Specialties</p>
+        <h2 class="font-display font-900 text-3xl sm:text-4xl lg:text-5xl text-gold mb-4">Irish Favorites</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <!-- Featured items with photos -->
+      <div class="grid md:grid-cols-2 gap-8 mb-10">
+        <!-- Fish & Chips -->
+        <div class="featured-item bg-dark-surface rounded-xl overflow-hidden shadow-lg fade-up border border-gold/15">
+          <div class="overflow-hidden h-52">
+            <img src="assets/fish-chips.webp" alt="Beer-battered fish and chips" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex items-baseline mb-2">
+              <h3 class="font-display font-700 text-xl text-gold">Fish and Chips</h3>
+              <div class="menu-leader"></div>
+              <span class="font-display text-gold text-xl">$15</span>
+            </div>
+            <p class="text-text-light text-sm leading-relaxed">10-11 oz fried Icelandic haddock served with fries, cole slaw and tartar sauce</p>
+          </div>
+        </div>
+
+        <!-- Shepherd's Pie -->
+        <div class="featured-item bg-dark-surface rounded-xl overflow-hidden shadow-lg fade-up border border-gold/15" style="transition-delay: 0.1s;">
+          <div class="overflow-hidden h-52">
+            <img src="stock/shepards-pie.webp" alt="Shepherd's Pie with creamy mashed potatoes" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex items-baseline mb-2">
+              <h3 class="font-display font-700 text-xl text-gold">Shepherd's Pie</h3>
+              <div class="menu-leader"></div>
+              <span class="font-display text-gold text-xl">$13</span>
+            </div>
+            <p class="text-text-light text-sm leading-relaxed">House-made recipe of ground beef, peas &amp; carrots in Guinness gravy. Topped with red skin mashed potato crust</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Remaining Irish Favorites as list -->
+      <div class="space-y-6 max-w-4xl mx-auto">
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Irish Boxty</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$11</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Potato pancakes with apple sauce and sour cream</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Braised Irish Pot Roast</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$16</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Red skin mashed potatoes, Guinness gravy and vegetables</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Bangers and Mash</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Red skin mashed potatoes topped with three Irish sausages, saut&eacute;ed onions and Guinness gravy</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Mulligan Stew</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$12</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Comforting beef stew with tomatoes, carrots, onions and celery. Served with a dinner roll. <span class="text-gold/70 italic">Seasonal</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ DAILY SPECIALS CALLOUT ════════════════ -->
+  <section class="bg-dark-surface py-12">
+    <div class="max-w-3xl mx-auto px-6 fade-up">
+      <div class="border-2 border-gold/40 rounded-xl p-8 sm:p-10 text-center bg-dark/50">
+        <h3 class="font-display font-700 text-2xl sm:text-3xl text-gold mb-4">Daily Specials</h3>
+        <p class="text-text-light text-lg leading-relaxed mb-3">
+          We feature a rotating appetizer, soup, sandwich, and entree special every day. Follow us on Facebook for today's specials!
+        </p>
+        <p class="text-cream font-medium mb-6">Monday Haddock Fish Fry &mdash; a Fitz's tradition</p>
+        <a href="https://www.facebook.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-gold hover:text-cream transition-colors font-semibold group">
+          <!-- Facebook icon -->
+          <span class="w-10 h-10 rounded-full bg-primary-green/30 flex items-center justify-center group-hover:bg-gold group-hover:text-dark transition-all duration-300">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </span>
+          Follow Us on Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ SANDWICHES ════════════════ -->
+  <section id="sandwiches" class="bg-dark texture-overlay py-20 sm:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">Sandwiches</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Corned Beef or Pastrami Sandwich</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Thinly sliced and piled high, served hot or cold with choice of Swiss cheese on marbled rye. Brown mustard upon request</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Fitz's Reuben</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Served hot with Swiss cheese, sauerkraut &amp; 1000 Island dressing on grilled marbled rye. Choice of Corned Beef or Turkey</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Turkey Club</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Classic triple-decker with oven-roasted turkey, bacon, lettuce, tomato &amp; mayo. Served on Texas toast</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Fitz's Ultimate Irish</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Thin sliced corned beef, pastrami, Swiss cheese, coleslaw &amp; 1000 Island dressing. Served on grilled marbled rye</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Irish Cuban</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Sliced turkey, salami, ham, pastrami, Swiss cheese, pickles &amp; house-made Cuban sauce. Served on pressed hoagie</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Irish Beef</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Thin sliced roast beef on grilled rye with cream cheese, lettuce and horseradish sauce</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Chicago Beef</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Thin sliced roast beef topped with banana peppers and melted provolone on a toasted hoagie roll. Served with a side of au jus</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Philly Cheese Steak</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Sautéed peppers and onions with melted white American cheese on toasted hoagie roll</p>
+        </div>
+      </div>
+
+      <p class="text-text-light/60 text-xs mt-8 text-center italic fade-up">All sandwiches come with your choice of kettle chips or fries. Lettuce, tomato and onion on request</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ FROM THE CHAR-GRILL ════════════════ -->
+  <section id="char-grill" class="bg-dark-surface texture-overlay py-20 sm:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">From the Char-Grill</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <!-- Featured: Patty Melt with photo -->
+      <div class="featured-item bg-dark rounded-xl overflow-hidden shadow-lg mb-8 fade-up md:flex border border-gold/15">
+        <div class="overflow-hidden md:w-64 md:flex-shrink-0 h-48 md:h-auto">
+          <img src="assets/patty-melt2.webp" alt="Fitzgerald's patty melt with caramelized onions and Swiss on grilled rye" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-6 flex flex-col justify-center flex-1">
+          <div class="flex items-baseline mb-2">
+            <h3 class="font-display font-700 text-xl text-gold">Patty Melt</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm leading-relaxed">1/2 lb burger topped with saut&eacute;ed onions &amp; Swiss cheese on grilled marbled rye</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Cheeseburger</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">1/2 lb burger topped with Velveeta on toasted brioche bun</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Grilled Chicken Breast</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$13</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Marinated chicken breast, grilled or blackened, served on a grilled brioche bun</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Liverpool Dog</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$7</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Syracuse's famous Hofmann hotdog served on a grilled potato bun. Choose chili or sauerkraut</p>
+        </div>
+      </div>
+
+      <p class="text-text-light/60 text-xs mt-8 text-center italic fade-up">All Char-Grill items come with pickles and choice of kettle chips or fries. Lettuce, tomato and onion on request</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ ENTREES ════════════════ -->
+  <section id="entrees" class="bg-dark texture-overlay py-20 sm:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14 fade-up">
+        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">Entrees</h2>
+        <div class="celtic-divider">
+          <div class="line"></div>
+          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Chicken Caprese</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Marinated chicken breast topped with mozzarella cheese, fresh tomatoes, garlic, basil, balsamic drizzle, served with yellow rice and vegetables</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">6-4 oz. Baseball Cut Sirloin</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$16</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Served with mashed potato and vegetables</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Grilled or Blackened Mahi</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$15</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Seasoned grilled mahi with yellow rice and vegetable medley</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Sweet Chili Salmon</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Served with rice and vegetable medley</p>
+        </div>
+
+        <div class="fade-up">
+          <div class="flex items-baseline">
+            <h3 class="font-display font-700 text-lg text-gold">Caprese Chicken Dinner</h3>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-lg">$14</span>
+          </div>
+          <p class="text-text-light text-sm mt-1 leading-relaxed">Redskin mashed potatoes, Guinness gravy, vegetable medley</p>
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="mt-10 pt-8 border-t border-gold/15 fade-up">
+        <h3 class="font-display font-700 text-lg text-gold mb-4 text-center">Add-ons</h3>
+        <div class="space-y-3">
+          <div class="flex items-baseline">
+            <span class="text-text-light text-sm">Mashed Potato &amp; Gravy</span>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-base">$4</span>
+          </div>
+          <div class="flex items-baseline">
+            <span class="text-text-light text-sm">Vegetable of the Day</span>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-base">$4</span>
+          </div>
+          <div class="flex items-baseline">
+            <span class="text-text-light text-sm">Extra Piece Haddock (10-11 oz)</span>
+            <div class="menu-leader"></div>
+            <span class="font-display text-gold text-base">$11</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ BOTTOM CTA ════════════════ -->
+  <section class="bg-dark-surface texture-overlay py-20 sm:py-24 border-t border-gold/10">
+    <div class="max-w-3xl mx-auto px-6 text-center fade-up">
+      <h2 class="font-display font-700 text-3xl sm:text-4xl text-cream mb-4">
+        Join Us for a <span class="text-gold">Meal</span>
+      </h2>
+      <p class="text-text-light text-lg mb-8 leading-relaxed">
+        Whether it's a weeknight dinner or a weekend celebration, we've got a table waiting for you.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a href="index.html#contact" class="btn-gold text-base">Contact Us</a>
+        <a href="https://www.doordash.com/store/fitzgerald's-irish-tavern-new-port-richey-298019/" target="_blank" rel="noopener noreferrer" class="btn-outline text-base">Order on DoorDash</a>
+      </div>
+      <a href="tel:+17278169092" class="text-gold hover:text-cream transition-colors font-medium text-lg inline-flex items-center gap-2">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="flex-shrink-0">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        (727) 816-9092
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <section id="contact" class="bg-dark py-24 sm:py-32 border-t border-primary-green/20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 lg:gap-16 fade-up">
+        <!-- Visit Us -->
+        <div>
+          <h3 class="font-display font-700 text-2xl text-gold mb-6">Visit Us</h3>
+          <address class="not-italic text-text-light leading-relaxed space-y-3">
+            <p>5811 Nebraska Ave<br>New Port Richey, FL 34652</p>
+            <p>
+              <a href="tel:+17278169092" class="text-cream hover:text-gold transition-colors">(727) 816-9092</a>
+            </p>
+            <p>
+              <a href="mailto:info@fitzgeraldsirishtavern.com" class="text-cream hover:text-gold transition-colors">info@fitzgeraldsirishtavern.com</a>
+            </p>
+          </address>
+          <a href="https://maps.google.com/?q=5811+Nebraska+Ave+New+Port+Richey+FL+34652" target="_blank" rel="noopener" class="text-gold hover:text-cream transition-colors font-medium inline-flex items-center gap-2 mt-4 group text-sm">
+            Get Directions
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
+              <path d="M4 10h12M12 4l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Hours -->
+        <div>
+          <h3 class="font-display font-700 text-2xl text-gold mb-6">Hours</h3>
+          <div class="space-y-2 text-text-light">
+            <div class="flex justify-between">
+              <span>Monday &ndash; Wednesday</span>
+              <span class="text-cream">11AM &ndash; 12AM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Thursday &ndash; Saturday</span>
+              <span class="text-cream">11AM &ndash; 2AM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Sunday</span>
+              <span class="text-cream">11AM &ndash; 12AM</span>
+            </div>
+          </div>
+          <p class="text-text-light/60 text-sm mt-4 italic">Kitchen open until 10pm Sun&ndash;Thu, midnight Fri&ndash;Sat</p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+          <h3 class="font-display font-700 text-2xl text-gold mb-6">Follow Us</h3>
+          <div class="flex gap-4 mb-6">
+            <a href="https://www.facebook.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-primary-green/30 flex items-center justify-center text-cream hover:bg-gold hover:text-dark transition-all duration-300" aria-label="Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-primary-green/30 flex items-center justify-center text-cream hover:bg-gold hover:text-dark transition-all duration-300" aria-label="Instagram">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+          <p class="text-text-light text-sm leading-relaxed">Tag us <span class="text-gold">@fitzgeraldsirishtavern</span> for a chance to be featured!</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gold/20 mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-text-light/50 text-sm">&copy; 2026 Fitzgerald's Irish Tavern. All rights reserved.</p>
+        <p class="text-text-light/40 text-sm">
+          Website by <a href="https://onpointfl.com" target="_blank" rel="noopener" class="text-gold/60 hover:text-gold transition-colors">On Point Digital Studio</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ BACK TO TOP ════════════════ -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+
+  <!-- ════════════════ SCRIPTS ════════════════ -->
+  <script>
+    // ── Position nav below top bar ──
+    const topBar = document.getElementById('topBar');
+    const nav = document.getElementById('mainNav');
+    const categoryNav = document.getElementById('categoryNav');
+
+    function syncNavPosition() {
+      const topBarHeight = topBar.offsetHeight;
+      nav.style.top = topBarHeight + 'px';
+    }
+
+    function syncCategoryNavTop() {
+      const topBarHeight = topBar.offsetHeight;
+      categoryNav.style.top = (topBarHeight + nav.offsetHeight) + 'px';
+    }
+
+    syncNavPosition();
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      syncCategoryNavTop();
+    });
+    window.addEventListener('resize', () => {
+      syncNavPosition();
+      syncCategoryNavTop();
+    });
+    // Start scrolled since hero is shorter
+    nav.classList.add('scrolled');
+    syncCategoryNavTop();
+
+    // ── Hero parallax (subtle) ──
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      if (scrolled < window.innerHeight) {
+        heroBg.style.transform = `translateY(${scrolled * 0.25}px)`;
+      }
+    });
+
+    // ── Mobile menu ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const hamTop = document.getElementById('ham-top');
+    const hamMid = document.getElementById('ham-mid');
+    const hamBot = document.getElementById('ham-bot');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        mobileOverlay.classList.remove('hidden');
+        hamTop.style.transform = 'rotate(45deg) translate(4px, 4px)';
+        hamMid.style.opacity = '0';
+        hamBot.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        document.body.style.overflow = 'hidden';
+      } else {
+        closeMobile();
+      }
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.add('hidden');
+      hamTop.style.transform = '';
+      hamMid.style.opacity = '';
+      hamBot.style.transform = '';
+      document.body.style.overflow = '';
+    }
+
+    // ── Intersection Observer for fade-in ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── Category nav: smooth scroll on click ──
+    const catBtns = document.querySelectorAll('.cat-btn');
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (target) {
+          const navHeight = document.querySelector('.nav-bar').offsetHeight || 72;
+          const catNavHeight = document.getElementById('categoryNav').offsetHeight;
+          const offset = target.offsetTop - navHeight - catNavHeight - 8;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── Category nav: highlight active section on scroll ──
+    const sections = document.querySelectorAll('#appetizers, #soups-salads, #irish-favorites, #sandwiches, #char-grill, #entrees');
+    const categoryObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          catBtns.forEach(btn => {
+            if (btn.dataset.target === id) {
+              btn.classList.add('active');
+              // Auto-scroll the nav so active button is visible
+              const navContainer = btn.parentElement;
+              const btnLeft = btn.offsetLeft;
+              const btnWidth = btn.offsetWidth;
+              const containerWidth = navContainer.offsetWidth;
+              navContainer.scrollTo({
+                left: btnLeft - (containerWidth / 2) + (btnWidth / 2),
+                behavior: 'smooth'
+              });
+            } else {
+              btn.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      threshold: 0,
+      rootMargin: '-120px 0px -60% 0px'
+    });
+
+    sections.forEach(section => categoryObserver.observe(section));
+
+    // ── Back to top ──
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
