@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fitzgerald's Irish Tavern | Downtown New Port Richey</title>
   <meta name="description" content="Downtown New Port Richey's authentic Irish tavern since 2004. Great food, cold pints, live music, and 26 HDTVs for every game day.">
@@ -17,7 +17,7 @@
     "description": "One of the longest-running businesses in downtown New Port Richey. Authentic Irish tavern serving craft pints, Irish-inspired pub fare, and live music since 2004. 26 HDTVs for every game day.",
     "url": "https://fitzgeraldstavern.com",
     "telephone": "+1-727-816-9092",
-    "image": "https://fitzgeraldstavern.com/assets/hero.jpg",
+    "image": "https://fitzgeraldstavern.com/assets/Fitz_hero_v2.jpeg",
     "foundingDate": "2004",
     "servesCuisine": ["Irish", "Pub Food", "American"],
     "acceptsReservations": "False",
@@ -102,24 +102,24 @@
     ]
   }
   </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'dark': '#0f1a14',
-            'dark-surface': '#162019',
-            'primary-green': '#1a5c38',
-            'accent-green': '#2d8a56',
-            'gold': '#c8a951',
-            'cream': '#f5ecd7',
-            'text-light': '#e8dcc8',
-            'text-heading': '#f5ecd7',
-            'dark-text': '#1a1a1a',
+            'bg-deep': '#13271C',
+            'bg-surface': '#1A3527',
+            'green': '#246B43',
+            'green-bright': '#349460',
+            'orange': '#CB6234',
+            'orange-hi': '#DF7848',
+            'cream': '#F5ECD7',
+            'text-light': '#E7DCC6',
           },
           fontFamily: {
             'display': ['"Playfair Display"', 'serif'],
@@ -131,586 +131,588 @@
   </script>
   <style>
     :root {
-      --dark: #0f1a14;
-      --dark-surface: #162019;
-      --primary-green: #1a5c38;
-      --accent-green: #2d8a56;
-      --gold: #c8a951;
-      --cream: #f5ecd7;
-      --text-light: #e8dcc8;
-      --text-heading: #f5ecd7;
-      --dark-text: #1a1a1a;
+      --bg-deep: #13271C;
+      --bg-surface: #1A3527;
+      --green: #246B43;
+      --green-bright: #349460;
+      --orange: #CB6234;
+      --orange-hi: #DF7848;
+      --cream: #F5ECD7;
+      --text-light: #E7DCC6;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'DM Sans', sans-serif;
-      background-color: var(--dark);
+      background-color: var(--bg-deep);
       color: var(--text-light);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
+    img { display: block; }
+
+    /* ── Preloader ── */
+    .preloader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--bg-deep);
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      gap: 1.5rem;
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+    .preloader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
+    .preloader__mark { width: 78px; height: 78px; animation: spin-soft 2.4s ease-in-out infinite; }
+    @keyframes spin-soft { 0%,100% { transform: rotate(-8deg) scale(1); } 50% { transform: rotate(8deg) scale(1.06); } }
+    .preloader__word {
+      font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.5rem;
+      color: var(--cream); letter-spacing: 0.04em;
+    }
+    .preloader__bar {
+      width: 140px; height: 2px; background: rgba(245,236,215,0.15); overflow: hidden; border-radius: 2px;
+    }
+    .preloader__bar span {
+      display: block; height: 100%; width: 40%; background: var(--orange);
+      animation: loadSlide 1.1s ease-in-out infinite;
+    }
+    @keyframes loadSlide { 0% { transform: translateX(-100%); } 100% { transform: translateX(350%); } }
 
     /* ── Nav ── */
     .nav-bar {
-      background: rgba(15, 26, 20, 0.97);
-      backdrop-filter: blur(12px);
-      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+      background: transparent;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
     }
     .nav-bar.scrolled {
-      background: rgba(15, 26, 20, 0.97);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+      background: rgba(19, 39, 28, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 2px 28px rgba(0,0,0,0.45);
     }
 
-    /* ── Hero parallax ── */
-    .hero-section {
-      position: relative;
-      overflow: hidden;
-    }
+    /* ── Hero ── */
+    .hero-section { position: relative; overflow: hidden; }
     .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: url('assets/patio2.jpg') center center / cover no-repeat;
-      transform: translateZ(0);
-      will-change: transform;
+      position: absolute; inset: -8%; width: 116%; height: 116%;
+      background: url('assets/Fitz_hero_v2.jpeg') center 40% / cover no-repeat;
+      transform: translateZ(0); will-change: transform;
+      animation: kenBurns 18s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      0%   { transform: scale(1) translate(0,0); }
+      100% { transform: scale(1.1) translate(-1.5%, -1.5%); }
     }
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(15, 26, 20, 0.55);
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 52% at 50% 45%, rgba(8,18,13,0.62) 0%, rgba(8,18,13,0.30) 46%, rgba(0,0,0,0) 74%),
+        linear-gradient(180deg, rgba(19,39,28,0.80) 0%, rgba(19,39,28,0.40) 34%, rgba(19,39,28,0.56) 70%, rgba(19,39,28,0.97) 100%);
+    }
+    .hero-heading { text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 6px 38px rgba(0,0,0,0.6); }
+
+    /* ── Buttons ── */
+    .btn-orange {
+      background: var(--orange); color: var(--bg-deep); font-weight: 700;
+      padding: 15px 34px; border-radius: 8px; transition: all 0.3s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      text-decoration: none; cursor: pointer; letter-spacing: 0.01em;
+    }
+    .btn-orange:hover { background: var(--orange-hi); box-shadow: 0 10px 30px rgba(203,98,52,0.4); transform: translateY(-2px); }
+    .btn-ghost {
+      border: 1.5px solid rgba(245,236,215,0.5); color: var(--cream); font-weight: 600;
+      padding: 14px 32px; border-radius: 8px; transition: all 0.3s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      text-decoration: none; cursor: pointer; background: rgba(245,236,215,0.04);
+    }
+    .btn-ghost:hover { border-color: var(--orange); color: var(--orange-hi); background: rgba(203,98,52,0.08); transform: translateY(-2px); }
+
+    /* ── Celtic knot interlace divider (signature) ── */
+    .knot-divider { display: flex; align-items: center; justify-content: center; gap: 18px; width: 100%; }
+    .knot-divider .rule {
+      height: 1px; flex: 0 1 110px; max-width: 110px;
+      background: linear-gradient(90deg, transparent, var(--orange));
+    }
+    .knot-divider .rule.rev { background: linear-gradient(90deg, var(--orange), transparent); }
+    .knot-divider svg { flex-shrink: 0; }
+    .knot-divider.draw path { stroke-dasharray: 240; stroke-dashoffset: 240; transition: stroke-dashoffset 1.6s ease 0.2s; }
+    .knot-divider.draw.visible path { stroke-dashoffset: 0; }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Glass card ── */
+    .glass {
+      background: rgba(245,236,215,0.05);
+      border: 1px solid rgba(245,236,215,0.1);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
 
-    /* ── Hero text readability ── */
-    .hero-heading {
-      text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.7), 0 0 60px rgba(0,0,0,0.4);
+    /* ── Stat bar ── */
+    .stat-bar {
+      background: rgba(19,39,28,0.55);
+      border: 1px solid rgba(245,236,215,0.12);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
     }
+    .stat-num { font-family: 'Playfair Display', serif; font-weight: 800; color: var(--cream); line-height: 1; }
 
-    /* ── Celtic knot divider ── */
-    .celtic-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      opacity: 0.5;
-    }
-    .celtic-divider .line {
-      width: 80px;
-      height: 1px;
-      background: var(--gold);
-    }
-    .celtic-divider .knot {
-      width: 24px;
-      height: 24px;
-    }
+    /* ── Hero marquee ── */
+    .hero-marquee { position:absolute; bottom:0; left:0; width:100%; z-index:20; overflow:hidden;
+      background:rgba(13,24,18,0.55); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border-top:1px solid rgba(203,98,52,0.30); padding:13px 0; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+    .marquee-track { display:flex; width:max-content; animation:marqueeScroll 40s linear infinite; }
+    .hero-marquee:hover .marquee-track { animation-play-state:paused; }
+    .marquee-item { display:inline-flex; align-items:center; gap:10px; padding:0 26px; color:var(--cream);
+      font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.95rem; letter-spacing:0.02em; white-space:nowrap; }
+    .marquee-item svg { color:var(--orange); flex-shrink:0; }
+    .marquee-sep { color:var(--orange); opacity:0.55; font-size:0.6rem; align-self:center; }
+    @keyframes marqueeScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none; flex-wrap:wrap; justify-content:center; width:100%} }
 
-    /* ── Fade-in on scroll ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    /* ── Section label ── */
+    .eyebrow {
+      font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--orange); font-weight: 600;
     }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .accent-rule { width: 56px; height: 3px; background: var(--orange); border-radius: 2px; }
 
     /* ── Menu cards ── */
-    .menu-card {
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-    .menu-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-    }
-    .menu-card img {
-      transition: transform 0.5s ease;
-    }
-    .menu-card:hover img {
-      transform: scale(1.07);
-    }
+    .menu-card { transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; border: 1px solid rgba(245,236,215,0.07); }
+    .menu-card:hover { transform: translateY(-8px); box-shadow: 0 22px 50px rgba(0,0,0,0.5); border-color: rgba(203,98,52,0.4); }
+    .menu-card .img-wrap { overflow: hidden; }
+    .menu-card img { transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+    .menu-card:hover img { transform: scale(1.08); }
 
     /* ── Bento gallery ── */
     .bento-grid {
-      display: grid;
+      display: grid; gap: 14px;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto auto;
-      gap: 16px;
-    }
-    .bento-grid .bento-item:nth-child(1) {
-      grid-column: 1 / 3;
-      grid-row: 1 / 3;
-    }
-    .bento-grid .bento-item:nth-child(2) {
-      grid-column: 3 / 4;
-      grid-row: 1 / 2;
-    }
-    .bento-grid .bento-item:nth-child(3) {
-      grid-column: 4 / 5;
-      grid-row: 1 / 2;
-    }
-    .bento-grid .bento-item:nth-child(4) {
-      grid-column: 3 / 4;
-      grid-row: 2 / 3;
-    }
-    .bento-grid .bento-item:nth-child(5) {
-      grid-column: 4 / 5;
-      grid-row: 2 / 3;
-    }
-    @media (max-width: 768px) {
-      .bento-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .bento-grid .bento-item:nth-child(1) {
-        grid-column: 1 / 3;
-        grid-row: auto;
-      }
-      .bento-grid .bento-item:nth-child(2),
-      .bento-grid .bento-item:nth-child(3),
-      .bento-grid .bento-item:nth-child(4),
-      .bento-grid .bento-item:nth-child(5) {
-        grid-column: auto;
-        grid-row: auto;
-      }
+      grid-auto-rows: 168px;
     }
     .bento-item {
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative; overflow: hidden; border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35); cursor: pointer;
     }
-    .bento-item:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(.2,.7,.2,1); }
+    .bento-item:hover img { transform: scale(1.09); }
+    .bento-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(19,39,28,0.85) 100%);
+      opacity: 0.7; transition: opacity 0.4s ease;
     }
-    .bento-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .bento-item:hover::after { opacity: 0.95; }
+    .bento-cap {
+      position: absolute; left: 16px; bottom: 14px; z-index: 2;
+      color: var(--cream); font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.02em; transform: translateY(6px); opacity: 0; transition: all 0.4s ease;
+      display: flex; align-items: center; gap: 8px;
     }
-
-    /* ── Review quote mark ── */
-    .review-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.35;
-      position: absolute;
-      top: -10px;
-      left: 16px;
-    }
-
-    /* ── Gold CTA button ── */
-    .btn-gold {
-      background: var(--gold);
-      color: var(--dark);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      padding: 14px 32px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .btn-gold:hover {
-      background: #d4b85e;
-      box-shadow: 0 0 24px rgba(200, 169, 81, 0.35);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      border: 2px solid var(--gold);
-      color: var(--gold);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      padding: 12px 32px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-      background: transparent;
-    }
-    .btn-outline:hover {
-      background: rgba(200, 169, 81, 0.12);
-      box-shadow: 0 0 20px rgba(200, 169, 81, 0.2);
-      transform: translateY(-2px);
+    .bento-item:hover .bento-cap { transform: translateY(0); opacity: 1; }
+    .bento-cap::before { content: ''; width: 16px; height: 2px; background: var(--orange); }
+    .b1 { grid-column: span 2; grid-row: span 2; }
+    .b2 { grid-column: span 2; grid-row: span 1; }
+    .b3 { grid-column: span 1; grid-row: span 1; }
+    .b4 { grid-column: span 1; grid-row: span 1; }
+    .b5 { grid-column: span 2; grid-row: span 1; }
+    .b6 { grid-column: span 2; grid-row: span 1; }
+    @media (max-width: 768px) {
+      .bento-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; }
+      .b1 { grid-column: span 2; grid-row: span 2; }
+      .b2,.b5,.b6 { grid-column: span 2; }
+      .b3,.b4 { grid-column: span 1; }
     }
 
-    /* ── Gold accent bar ── */
-    .gold-bar {
-      width: 60px;
-      height: 3px;
-      background: var(--gold);
-      margin-bottom: 20px;
+    /* ── Review cards ── */
+    .review-card { transition: transform 0.35s ease, border-color 0.35s ease; }
+    .review-card:hover { transform: translateY(-6px); border-color: rgba(203,98,52,0.4); }
+    .quote-glyph { font-family: 'Playfair Display', serif; font-size: 4.5rem; line-height: 0.6; color: var(--orange); opacity: 0.4; }
+
+    /* ── Feature list (events) ── */
+    .feat-item { transition: transform 0.3s ease; }
+    .feat-item:hover { transform: translateX(6px); }
+    .feat-icon {
+      flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(203,98,52,0.12); border: 1px solid rgba(203,98,52,0.28);
     }
+
+    /* ── Guinness settle accent line ── */
+    .settle-line { position: relative; height: 3px; width: 100%; background: rgba(245,236,215,0.1); border-radius: 2px; overflow: hidden; }
+    .settle-line::after {
+      content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 0;
+      background: linear-gradient(90deg, var(--orange), var(--orange-hi));
+      transition: width 1.8s cubic-bezier(.2,.7,.2,1) 0.3s;
+    }
+    .settle-line.visible::after { width: 100%; }
+
+    /* ── Noise texture ── */
+    .texture { position: relative; }
+    .texture::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.5;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+    .texture > * { position: relative; z-index: 1; }
 
     /* ── Mobile menu ── */
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.35s ease;
-    }
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-    .mobile-menu a {
-      color: var(--gold);
-      position: relative;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .mobile-menu a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      transition: width 0.3s ease;
-    }
-    .mobile-menu a:hover::after {
-      width: 100%;
-    }
-
-    /* ── Subtle noise texture on dark sections ── */
-    .texture-overlay {
-      position: relative;
-    }
-    .texture-overlay::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
-    .texture-overlay > * {
-      position: relative;
-      z-index: 1;
-    }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(.2,.7,.2,1); }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a { color: var(--cream); position: relative; }
+    .mobile-menu a:hover { color: var(--orange-hi); }
 
     /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent-green); }
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--green-bright); }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+      .hero-bg { animation: none; }
+      .reveal { opacity: 1; transform: none; }
+      .knot-divider.draw path { stroke-dashoffset: 0; }
+      .settle-line::after { width: 100%; }
+    }
   </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="celtic-knot" viewBox="0 0 360 96"><path d="M 30.0 27.5 L 30.3 27.5 L 30.7 27.6 L 31.2 27.7 L 31.9 28.0 L 32.6 28.4 L 33.5 29.0 L 34.5 29.8 L 35.6 30.7 L 36.7 31.8 L 37.9 33.1 L 39.2 34.6 L 40.5 36.2 L 41.9 38.0 L 43.3 39.9 L 44.7 41.9 L 46.1 44.0 L 47.6 46.2 L 49.0 48.5 L 50.5 50.8 L 52.0 53.1 L 53.5 55.5 L 55.0 57.8 L 56.6 60.2 L 58.1 62.6 L 59.7 64.9 L 61.3 67.1 L 62.9 69.4 L 64.5 71.5 L 66.2 73.6 L 67.9 75.6 L 69.7 77.5 L 71.6 79.3 L 73.5 80.9 L 75.5 82.5 L 77.6 83.9 L 79.9 85.1 L 82.2 86.1 L 84.7 86.9 L 87.3 87.3 L 90.0 87.5 L 92.7 87.3 L 95.3 86.9 L 97.8 86.1 L 100.1 85.1 L 102.4 83.9 L 104.5 82.5 L 106.5 80.9 L 108.4 79.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 144.4 30.7 L 145.5 29.8 L 146.5 29.0 L 147.4 28.4 L 148.1 28.0 L 148.8 27.7 L 149.3 27.6 L 149.7 27.5 L 150.0 27.5 L 150.3 27.5 L 150.7 27.6 L 151.2 27.7 L 151.9 28.0 L 152.6 28.4 L 153.5 29.0 L 154.5 29.8 L 155.6 30.7 L 156.7 31.8 L 157.9 33.1 L 159.2 34.6 L 160.5 36.2 L 161.9 38.0 L 163.3 39.9 L 164.7 41.9 L 166.1 44.0 L 167.6 46.2 L 169.0 48.5 L 170.5 50.8 L 172.0 53.1 L 173.5 55.5 L 175.0 57.8 L 176.6 60.2 L 178.1 62.6 L 179.7 64.9 L 181.3 67.1 L 182.9 69.4 L 184.5 71.5 L 186.2 73.6 L 187.9 75.6 L 189.7 77.5 L 191.6 79.3 L 193.5 80.9 L 195.5 82.5 L 197.6 83.9 L 199.9 85.1 L 202.2 86.1 L 204.7 86.9 L 207.3 87.3 L 210.0 87.5 L 212.7 87.3 L 215.3 86.9 L 217.8 86.1 L 220.1 85.1 L 222.4 83.9 L 224.5 82.5 L 226.5 80.9 L 228.4 79.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 264.4 30.7 L 265.5 29.8 L 266.5 29.0 L 267.4 28.4 L 268.1 28.0 L 268.8 27.7 L 269.3 27.6 L 269.7 27.5 L 270.0 27.5 L 270.3 27.5 L 270.7 27.6 L 271.2 27.7 L 271.9 28.0 L 272.6 28.4 L 273.5 29.0 L 274.5 29.8 L 275.6 30.7 L 276.7 31.8 L 277.9 33.1 L 279.2 34.6 L 280.5 36.2 L 281.9 38.0 L 283.3 39.9 L 284.7 41.9 L 286.1 44.0 L 287.6 46.2 L 289.0 48.5 L 290.5 50.8 L 292.0 53.1 L 293.5 55.5 L 295.0 57.8 L 296.6 60.2 L 298.1 62.6 L 299.7 64.9 L 301.3 67.1 L 302.9 69.4 L 304.5 71.5 L 306.2 73.6 L 307.9 75.6 L 309.7 77.5 L 311.6 79.3 L 313.5 80.9 L 315.5 82.5 L 317.6 83.9 L 319.9 85.1 L 322.2 86.1 L 324.7 86.9 L 327.3 87.3 L 330.0 87.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 30.0 8.5 L 32.7 8.7 L 35.3 9.1 L 37.8 9.9 L 40.1 10.9 L 42.4 12.1 L 44.5 13.5 L 46.5 15.1 L 48.4 16.7 L 50.3 18.5 L 52.1 20.4 L 53.8 22.4 L 55.5 24.5 L 57.1 26.6 L 58.7 28.9 L 60.3 31.1 L 61.9 33.4 L 63.4 35.8 L 65.0 38.2 L 66.5 40.5 L 68.0 42.9 L 69.5 45.2 L 71.0 47.5 L 72.4 49.8 L 73.9 52.0 L 75.3 54.1 L 76.7 56.1 L 78.1 58.0 L 79.5 59.8 L 80.8 61.4 L 82.1 62.9 L 83.3 64.2 L 84.4 65.3 L 85.5 66.2 L 86.5 67.0 L 87.4 67.6 L 88.1 68.0 L 88.8 68.3 L 89.3 68.4 L 89.7 68.5 L 90.0 68.5 L 90.3 68.5 L 90.7 68.4 L 91.2 68.3 L 91.9 68.0 L 92.6 67.6 L 93.5 67.0 L 94.5 66.2 L 95.6 65.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 131.6 16.7 L 133.5 15.1 L 135.5 13.5 L 137.6 12.1 L 139.9 10.9 L 142.2 9.9 L 144.7 9.1 L 147.3 8.7 L 150.0 8.5 L 152.7 8.7 L 155.3 9.1 L 157.8 9.9 L 160.1 10.9 L 162.4 12.1 L 164.5 13.5 L 166.5 15.1 L 168.4 16.7 L 170.3 18.5 L 172.1 20.4 L 173.8 22.4 L 175.5 24.5 L 177.1 26.6 L 178.7 28.9 L 180.3 31.1 L 181.9 33.4 L 183.4 35.8 L 185.0 38.2 L 186.5 40.5 L 188.0 42.9 L 189.5 45.2 L 191.0 47.5 L 192.4 49.8 L 193.9 52.0 L 195.3 54.1 L 196.7 56.1 L 198.1 58.0 L 199.5 59.8 L 200.8 61.4 L 202.1 62.9 L 203.3 64.2 L 204.4 65.3 L 205.5 66.2 L 206.5 67.0 L 207.4 67.6 L 208.1 68.0 L 208.8 68.3 L 209.3 68.4 L 209.7 68.5 L 210.0 68.5 L 210.3 68.5 L 210.7 68.4 L 211.2 68.3 L 211.9 68.0 L 212.6 67.6 L 213.5 67.0 L 214.5 66.2 L 215.6 65.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 251.6 16.7 L 253.5 15.1 L 255.5 13.5 L 257.6 12.1 L 259.9 10.9 L 262.2 9.9 L 264.7 9.1 L 267.3 8.7 L 270.0 8.5 L 272.7 8.7 L 275.3 9.1 L 277.8 9.9 L 280.1 10.9 L 282.4 12.1 L 284.5 13.5 L 286.5 15.1 L 288.4 16.7 L 290.3 18.5 L 292.1 20.4 L 293.8 22.4 L 295.5 24.5 L 297.1 26.6 L 298.7 28.9 L 300.3 31.1 L 301.9 33.4 L 303.4 35.8 L 305.0 38.2 L 306.5 40.5 L 308.0 42.9 L 309.5 45.2 L 311.0 47.5 L 312.4 49.8 L 313.9 52.0 L 315.3 54.1 L 316.7 56.1 L 318.1 58.0 L 319.5 59.8 L 320.8 61.4 L 322.1 62.9 L 323.3 64.2 L 324.4 65.3 L 325.5 66.2 L 326.5 67.0 L 327.4 67.6 L 328.1 68.0 L 328.8 68.3 L 329.3 68.4 L 329.7 68.5 L 330.0 68.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 30.0 87.5 L 32.7 87.3 L 35.3 86.9 L 37.8 86.1 L 40.1 85.1 L 42.4 83.9 L 44.5 82.5 L 46.5 80.9 L 48.4 79.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 84.4 30.7 L 85.5 29.8 L 86.5 29.0 L 87.4 28.4 L 88.1 28.0 L 88.8 27.7 L 89.3 27.6 L 89.7 27.5 L 90.0 27.5 L 90.3 27.5 L 90.7 27.6 L 91.2 27.7 L 91.9 28.0 L 92.6 28.4 L 93.5 29.0 L 94.5 29.8 L 95.6 30.7 L 96.7 31.8 L 97.9 33.1 L 99.2 34.6 L 100.5 36.2 L 101.9 38.0 L 103.3 39.9 L 104.7 41.9 L 106.1 44.0 L 107.6 46.2 L 109.0 48.5 L 110.5 50.8 L 112.0 53.1 L 113.5 55.5 L 115.0 57.8 L 116.6 60.2 L 118.1 62.6 L 119.7 64.9 L 121.3 67.1 L 122.9 69.4 L 124.5 71.5 L 126.2 73.6 L 127.9 75.6 L 129.7 77.5 L 131.6 79.3 L 133.5 80.9 L 135.5 82.5 L 137.6 83.9 L 139.9 85.1 L 142.2 86.1 L 144.7 86.9 L 147.3 87.3 L 150.0 87.5 L 152.7 87.3 L 155.3 86.9 L 157.8 86.1 L 160.1 85.1 L 162.4 83.9 L 164.5 82.5 L 166.5 80.9 L 168.4 79.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 204.4 30.7 L 205.5 29.8 L 206.5 29.0 L 207.4 28.4 L 208.1 28.0 L 208.8 27.7 L 209.3 27.6 L 209.7 27.5 L 210.0 27.5 L 210.3 27.5 L 210.7 27.6 L 211.2 27.7 L 211.9 28.0 L 212.6 28.4 L 213.5 29.0 L 214.5 29.8 L 215.6 30.7 L 216.7 31.8 L 217.9 33.1 L 219.2 34.6 L 220.5 36.2 L 221.9 38.0 L 223.3 39.9 L 224.7 41.9 L 226.1 44.0 L 227.6 46.2 L 229.0 48.5 L 230.5 50.8 L 232.0 53.1 L 233.5 55.5 L 235.0 57.8 L 236.6 60.2 L 238.1 62.6 L 239.7 64.9 L 241.3 67.1 L 242.9 69.4 L 244.5 71.5 L 246.2 73.6 L 247.9 75.6 L 249.7 77.5 L 251.6 79.3 L 253.5 80.9 L 255.5 82.5 L 257.6 83.9 L 259.9 85.1 L 262.2 86.1 L 264.7 86.9 L 267.3 87.3 L 270.0 87.5 L 272.7 87.3 L 275.3 86.9 L 277.8 86.1 L 280.1 85.1 L 282.4 83.9 L 284.5 82.5 L 286.5 80.9 L 288.4 79.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 324.4 30.7 L 325.5 29.8 L 326.5 29.0 L 327.4 28.4 L 328.1 28.0 L 328.8 27.7 L 329.3 27.6 L 329.7 27.5 L 330.0 27.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 30.0 68.5 L 30.3 68.5 L 30.7 68.4 L 31.2 68.3 L 31.9 68.0 L 32.6 67.6 L 33.5 67.0 L 34.5 66.2 L 35.6 65.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 71.6 16.7 L 73.5 15.1 L 75.5 13.5 L 77.6 12.1 L 79.9 10.9 L 82.2 9.9 L 84.7 9.1 L 87.3 8.7 L 90.0 8.5 L 92.7 8.7 L 95.3 9.1 L 97.8 9.9 L 100.1 10.9 L 102.4 12.1 L 104.5 13.5 L 106.5 15.1 L 108.4 16.7 L 110.3 18.5 L 112.1 20.4 L 113.8 22.4 L 115.5 24.5 L 117.1 26.6 L 118.7 28.9 L 120.3 31.1 L 121.9 33.4 L 123.4 35.8 L 125.0 38.2 L 126.5 40.5 L 128.0 42.9 L 129.5 45.2 L 131.0 47.5 L 132.4 49.8 L 133.9 52.0 L 135.3 54.1 L 136.7 56.1 L 138.1 58.0 L 139.5 59.8 L 140.8 61.4 L 142.1 62.9 L 143.3 64.2 L 144.4 65.3 L 145.5 66.2 L 146.5 67.0 L 147.4 67.6 L 148.1 68.0 L 148.8 68.3 L 149.3 68.4 L 149.7 68.5 L 150.0 68.5 L 150.3 68.5 L 150.7 68.4 L 151.2 68.3 L 151.9 68.0 L 152.6 67.6 L 153.5 67.0 L 154.5 66.2 L 155.6 65.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 191.6 16.7 L 193.5 15.1 L 195.5 13.5 L 197.6 12.1 L 199.9 10.9 L 202.2 9.9 L 204.7 9.1 L 207.3 8.7 L 210.0 8.5 L 212.7 8.7 L 215.3 9.1 L 217.8 9.9 L 220.1 10.9 L 222.4 12.1 L 224.5 13.5 L 226.5 15.1 L 228.4 16.7 L 230.3 18.5 L 232.1 20.4 L 233.8 22.4 L 235.5 24.5 L 237.1 26.6 L 238.7 28.9 L 240.3 31.1 L 241.9 33.4 L 243.4 35.8 L 245.0 38.2 L 246.5 40.5 L 248.0 42.9 L 249.5 45.2 L 251.0 47.5 L 252.4 49.8 L 253.9 52.0 L 255.3 54.1 L 256.7 56.1 L 258.1 58.0 L 259.5 59.8 L 260.8 61.4 L 262.1 62.9 L 263.3 64.2 L 264.4 65.3 L 265.5 66.2 L 266.5 67.0 L 267.4 67.6 L 268.1 68.0 L 268.8 68.3 L 269.3 68.4 L 269.7 68.5 L 270.0 68.5 L 270.3 68.5 L 270.7 68.4 L 271.2 68.3 L 271.9 68.0 L 272.6 67.6 L 273.5 67.0 L 274.5 66.2 L 275.6 65.3" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 311.6 16.7 L 313.5 15.1 L 315.5 13.5 L 317.6 12.1 L 319.9 10.9 L 322.2 9.9 L 324.7 9.1 L 327.3 8.7 L 330.0 8.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 30.0 8.5 A 39.5 39.5 0 0 0 30.0 87.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 30.0 27.5 A 20.5 20.5 0 0 0 30.0 68.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 330.0 8.5 A 39.5 39.5 0 0 1 330.0 87.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M 330.0 27.5 A 20.5 20.5 0 0 1 330.0 68.5" fill="none" stroke="#CB6234" stroke-width="3.2" stroke-linecap="round"/></symbol></svg>
+
+  <!-- ════════════════ PRELOADER ════════════════ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <svg class="preloader__mark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(256,256) rotate(-15) translate(-256,-256)">
+        <g transform="translate(0,512) scale(0.1,-0.1)" fill="#349460" stroke="none">
+          <path d="M2155 4465 c-173 -38 -304 -120 -432 -271 -30 -35 -64 -69 -76 -76 -12 -6 -80 -15 -152 -19 -230 -14 -364 -68 -501 -204 -64 -63 -90 -98 -123 -165 -93 -191 -94 -393 -1 -585 113 -233 312 -369 735 -499 116 -35 255 -78 310 -95 105 -32 145 -53 145 -76 0 -23 -34 -26 -177 -16 -173 14 -461 14 -573 1 -122 -14 -233 -45 -330 -93 -68 -33 -102 -58 -170 -127 -131 -131 -184 -258 -183 -440 0 -189 65 -342 203 -481 90 -91 163 -138 285 -184 86 -32 95 -40 145 -131 83 -151 194 -257 345 -329 206 -99 424 -101 620 -7 144 70 239 164 315 314 100 195 122 436 75 822 -15 123 -14 166 5 166 17 0 164 -241 235 -385 123 -251 201 -498 241 -764 26 -174 44 -182 218 -96 126 61 146 78 146 120 0 64 -155 413 -280 630 -100 173 -253 397 -357 519 -35 42 -42 66 -19 66 8 0 57 -33 108 -73 145 -113 288 -219 348 -259 205 -134 396 -200 580 -200 186 -1 340 62 467 188 140 139 214 361 184 551 -17 111 -47 193 -102 284 -87 142 -83 124 -49 221 39 111 50 195 39 293 -16 154 -64 258 -170 369 -225 238 -594 251 -885 33 -127 -96 -245 -236 -444 -527 -114 -167 -174 -240 -197 -240 -7 0 -13 7 -13 15 0 8 43 115 96 237 113 261 165 403 202 548 23 91 26 126 27 260 0 169 -9 217 -66 337 -85 178 -274 327 -465 368 -84 18 -228 18 -309 0z"/>
+        </g>
+      </g>
+    </svg>
+    <span class="preloader__word">Fitzgerald's</span>
+    <div class="preloader__bar"><span></span></div>
+  </div>
 
   <!-- ════════════════ TOP BAR (Hours) ════════════════ -->
-  <div class="fixed top-0 left-0 w-full z-50 bg-primary-green text-cream text-xs sm:text-sm font-medium tracking-wide" id="topBar">
-    <div class="max-w-7xl mx-auto px-6 py-1.5 flex justify-center items-center gap-2 sm:gap-6">
+  <div class="fixed top-0 left-0 w-full z-50 bg-green text-cream text-xs sm:text-sm font-medium tracking-wide" id="topBar">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-center items-center gap-3 sm:gap-6">
+      <span class="hidden sm:inline-flex items-center gap-2">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="text-orange-hi"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Open Today
+      </span>
       <span>Mon–Wed 11AM–12AM</span>
-      <span class="text-gold">|</span>
+      <span class="text-orange-hi">•</span>
       <span>Thu–Sat 11AM–2AM</span>
-      <span class="text-gold">|</span>
+      <span class="text-orange-hi">•</span>
       <span>Sun 11AM–12AM</span>
     </div>
   </div>
 
   <!-- ════════════════ NAVIGATION ════════════════ -->
-  <nav class="nav-bar fixed left-0 w-full z-50 transition-all duration-300" style="top: 0;" id="mainNav">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 no-underline">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 52" width="292" height="56" class="flex-shrink-0">
-          <!-- Traced shamrock, positioned as nested SVG -->
+  <nav class="nav-bar fixed left-0 w-full z-50 py-4" style="top: 0;" id="mainNav">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <!-- Logo (verbatim, recolored for new palette) -->
+      <a href="#top" class="flex items-center gap-3 no-underline" aria-label="Fitzgerald's Irish Tavern home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 52" width="270" height="50" class="flex-shrink-0">
           <svg x="0" y="2" width="44" height="44" viewBox="0 0 512 512" overflow="visible">
             <g transform="translate(256,256) rotate(-15) translate(-256,-256)">
-              <g transform="translate(0,512) scale(0.1,-0.1)" fill="#2d8a56" stroke="none">
+              <g transform="translate(0,512) scale(0.1,-0.1)" fill="#349460" stroke="none">
                 <path d="M2155 4465 c-173 -38 -304 -120 -432 -271 -30 -35 -64 -69 -76 -76 -12 -6 -80 -15 -152 -19 -230 -14 -364 -68 -501 -204 -64 -63 -90 -98 -123 -165 -93 -191 -94 -393 -1 -585 113 -233 312 -369 735 -499 116 -35 255 -78 310 -95 105 -32 145 -53 145 -76 0 -23 -34 -26 -177 -16 -173 14 -461 14 -573 1 -122 -14 -233 -45 -330 -93 -68 -33 -102 -58 -170 -127 -131 -131 -184 -258 -183 -440 0 -189 65 -342 203 -481 90 -91 163 -138 285 -184 86 -32 95 -40 145 -131 83 -151 194 -257 345 -329 206 -99 424 -101 620 -7 144 70 239 164 315 314 100 195 122 436 75 822 -15 123 -14 166 5 166 17 0 164 -241 235 -385 123 -251 201 -498 241 -764 26 -174 44 -182 218 -96 126 61 146 78 146 120 0 64 -155 413 -280 630 -100 173 -253 397 -357 519 -35 42 -42 66 -19 66 8 0 57 -33 108 -73 145 -113 288 -219 348 -259 205 -134 396 -200 580 -200 186 -1 340 62 467 188 140 139 214 361 184 551 -17 111 -47 193 -102 284 -87 142 -83 124 -49 221 39 111 50 195 39 293 -16 154 -64 258 -170 369 -225 238 -594 251 -885 33 -127 -96 -245 -236 -444 -527 -114 -167 -174 -240 -197 -240 -7 0 -13 7 -13 15 0 8 43 115 96 237 113 261 165 403 202 548 23 91 26 126 27 260 0 169 -9 217 -66 337 -85 178 -274 327 -465 368 -84 18 -228 18 -309 0z"/>
               </g>
             </g>
           </svg>
-          <text x="52" y="26" font-family="'Playfair Display', serif" font-weight="700" font-size="24" fill="#2d8a56">Fitzgerald's</text>
-          <text x="52" y="44" font-family="'DM Sans', sans-serif" font-weight="500" font-size="11" fill="#c8a951" letter-spacing="3">IRISH TAVERN</text>
+          <text x="52" y="26" font-family="'Playfair Display', serif" font-weight="700" font-size="24" fill="#F5ECD7">Fitzgerald's</text>
+          <text x="52" y="44" font-family="'DM Sans', sans-serif" font-weight="500" font-size="11" fill="#CB6234" letter-spacing="3">IRISH TAVERN</text>
         </svg>
       </a>
 
       <!-- Desktop Nav -->
       <div class="hidden lg:flex items-center gap-8">
-        <a href="#" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Home</a>
-        <a href="menu.html" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Menu</a>
-        <a href="#about" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">About</a>
-        <a href="events.html" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Events</a>
-        <a href="#gallery" class="text-cream hover:text-gold transition-colors duration-300 font-medium text-sm tracking-wide">Gallery</a>
-        <a href="tel:+17278169092" class="bg-gold text-dark hover:shadow-[0_0_20px_rgba(200,169,81,0.5)] transition-all duration-300 font-semibold text-sm tracking-wide px-4 py-2 rounded-full inline-flex items-center gap-2">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="#top" class="text-cream hover:text-orange-hi transition-colors duration-300 font-medium text-sm tracking-wide">Home</a>
+        <a href="menu.html" class="text-cream hover:text-orange-hi transition-colors duration-300 font-medium text-sm tracking-wide">Menu</a>
+        <a href="#about" class="text-cream hover:text-orange-hi transition-colors duration-300 font-medium text-sm tracking-wide">About</a>
+        <a href="events.html" class="text-cream hover:text-orange-hi transition-colors duration-300 font-medium text-sm tracking-wide">Events</a>
+        <a href="#gallery" class="text-cream hover:text-orange-hi transition-colors duration-300 font-medium text-sm tracking-wide">Gallery</a>
+        <a href="tel:+17278169092" class="btn-orange !py-2.5 !px-5 text-sm tracking-wide">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           (727) 816-9092
         </a>
       </div>
 
       <!-- Mobile hamburger -->
-      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="Open menu">
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 z-50 cursor-pointer" aria-label="Open menu" aria-expanded="false">
         <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" id="ham-top"></span>
         <span class="block w-6 h-0.5 bg-cream transition-all duration-300" id="ham-mid"></span>
         <span class="block w-6 h-0.5 bg-cream transition-all duration-300 origin-center" id="ham-bot"></span>
       </button>
     </div>
-
   </nav>
 
-  <!-- Mobile Menu (outside nav for full coverage) -->
-  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 lg:hidden" id="mobileMenu" style="background: var(--dark); min-height: 100vh; min-height: 100dvh;">
-    <a href="#" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">Home</a>
-    <a href="menu.html" class="text-2xl font-display font-700 tracking-wide">Menu</a>
-    <a href="#about" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">About</a>
-    <a href="events.html" class="text-2xl font-display font-700 tracking-wide">Events</a>
-    <a href="#gallery" class="text-2xl font-display font-700 tracking-wide" onclick="closeMobile()">Gallery</a>
-    <a href="tel:+17278169092" class="text-2xl font-display font-700 tracking-wide text-gold" onclick="closeMobile()">(727) 816-9092</a>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-9 lg:hidden texture" id="mobileMenu" style="background: var(--bg-deep); min-height: 100vh; min-height: 100dvh;">
+    <a href="#top" class="text-3xl font-display font-bold tracking-wide" onclick="closeMobile()">Home</a>
+    <a href="menu.html" class="text-3xl font-display font-bold tracking-wide">Menu</a>
+    <a href="#about" class="text-3xl font-display font-bold tracking-wide" onclick="closeMobile()">About</a>
+    <a href="events.html" class="text-3xl font-display font-bold tracking-wide">Events</a>
+    <a href="#gallery" class="text-3xl font-display font-bold tracking-wide" onclick="closeMobile()">Gallery</a>
+    <a href="tel:+17278169092" class="mt-2 text-xl font-body font-semibold tracking-wide text-orange-hi" onclick="closeMobile()">(727) 816-9092</a>
   </div>
 
-
   <!-- ════════════════ HERO ════════════════ -->
-  <section class="hero-section h-screen flex items-center justify-center relative">
+  <span id="top"></span>
+  <section class="hero-section min-h-screen flex items-center justify-center relative pt-28 pb-28 sm:pb-28">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
 
-    <div class="relative z-10 text-center px-6 max-w-3xl">
-      <h1 class="font-display font-900 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cream leading-tight mb-4 hero-heading">
-        Welcome to <span class="text-gold">Fitzgerald's</span>
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+      <p class="font-body text-orange-hi text-sm md:text-base tracking-[0.3em] uppercase mb-5 hero-heading text-center">Est. 2004<span class="hidden sm:inline"> · </span><br class="sm:hidden">Downtown New Port Richey</p>
+      <h1 class="font-display font-900 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cream leading-[1.05] mb-6 hero-heading">
+        Welcome to <span class="text-orange">Fitzgerald's</span>
       </h1>
-      <p class="font-body text-white text-lg sm:text-xl md:text-2xl mb-2 tracking-wide" style="text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 4px 30px rgba(0,0,0,0.7);">
-        Downtown New Port Richey's <br class="sm:hidden">Authentic Irish Tavern
+      <p class="font-body text-cream text-lg sm:text-xl md:text-2xl mb-9 tracking-wide max-w-2xl mx-auto" style="text-shadow: 0 1px 3px rgba(0,0,0,0.95), 0 2px 14px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.7);">
+        Cold pints, Irish pub fare, live music, and every game on 26 HDTVs &mdash; the heart of downtown for two decades.
       </p>
-      <p class="font-body text-gold text-sm md:text-base tracking-widest uppercase mb-10 hero-heading">
-        <span style="background: rgba(15, 26, 20, 0.5); padding: 4px 16px; border-radius: 4px; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);">Est. 2004</span>
-      </p>
+      <!-- subline shadow strengthened for legibility on bright hero -->
 
-      <!-- Celtic knot divider -->
-      <div class="celtic-divider mb-10" style="opacity: 0.85;">
-        <div class="line" style="width: 100px;"></div>
-        <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; filter: drop-shadow(0 0 6px rgba(200,169,81,0.4));">
-          <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
-          <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
-          <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
-          <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1.5" fill="none"/>
-        </svg>
-        <div class="line" style="width: 100px;"></div>
+      <!-- Celtic knot interlace divider (signature) -->
+      <div class="knot-divider mb-10" aria-hidden="true">
+        <span class="rule"></span>
+        <svg class="knot-svg" viewBox="0 0 360 96" width="94" height="25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#celtic-knot"/></svg>
+        <span class="rule rev"></span>
       </div>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="menu.html" class="btn-gold text-base w-1/2 sm:w-auto text-center">View Our Menu</a>
-        <a href="tel:+17278169092" class="text-base w-1/2 sm:w-auto text-center inline-block font-semibold rounded-md transition-all duration-300 hover:-translate-y-0.5" style="background: var(--primary-green); color: var(--gold); padding: 14px 32px; text-decoration: none;">Call Us</a>
+        <a href="menu.html" class="btn-orange text-base w-full sm:w-auto">
+          View Our Menu
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M12 4l6 6-6 6"/></svg>
+        </a>
+        <a href="tel:+17278169092" class="btn-ghost text-base w-full sm:w-auto">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Us
+        </a>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="2" stroke-linecap="round">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
+    <!-- Hero marquee -->
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="marquee-track"><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Pouring Since 2004</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>26 HDTVs · Every Game</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg>4.5★ from 500+ Reviews</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>Live Music Weekly</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 17a1.8 1.8 0 0 1-1.8 1.7H10a1.8 1.8 0 0 1-1.8-1.7L7 3z"/><path d="M7.3 8h9.4"/></svg>Cold Pints on Tap</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>Open 'til 2AM Thu–Sat</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Pouring Since 2004</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>26 HDTVs · Every Game</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg>4.5★ from 500+ Reviews</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>Live Music Weekly</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 17a1.8 1.8 0 0 1-1.8 1.7H10a1.8 1.8 0 0 1-1.8-1.7L7 3z"/><path d="M7.3 8h9.4"/></svg>Cold Pints on Tap</span><span class="marquee-sep">◆</span><span class="marquee-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>Open 'til 2AM Thu–Sat</span><span class="marquee-sep">◆</span></div>
     </div>
   </section>
 
-
-  <!-- ════════════════ ABOUT TEASER ════════════════ -->
-  <section id="about" class="bg-dark texture-overlay py-24 sm:py-32">
+  <!-- ════════════════ ABOUT ════════════════ -->
+  <section id="about" class="bg-bg-deep texture pt-24 sm:pt-32 pb-24 sm:pb-32">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div class="fade-up">
-        <div class="gold-bar"></div>
-        <h2 class="font-display font-700 text-3xl sm:text-4xl lg:text-5xl text-cream leading-snug mb-6">
-          A New Port Richey <span class="text-gold">Tradition</span> Since 2004
+      <div class="reveal order-2 md:order-1">
+        <p class="eyebrow mb-4">Our Story</p>
+        <h2 class="font-display font-800 text-3xl sm:text-4xl lg:text-5xl text-cream leading-[1.15] mb-6">
+          A New Port Richey Tradition <span class="text-orange">Since 2004</span>
         </h2>
-        <p class="text-text-light text-lg leading-relaxed mb-8">
+        <div class="accent-rule mb-7"></div>
+        <p class="text-text-light text-lg leading-relaxed mb-6">
           For over two decades, Fitzgerald's Irish Tavern has been the heart of downtown New Port Richey. From our signature fish and chips to craft cocktails on the patio, we're where the community comes together &mdash; for great food, cold pints, and unforgettable nights.
         </p>
-        <p class="text-text-light text-lg leading-relaxed mb-8">
+        <p class="text-text-light text-lg leading-relaxed mb-9">
           Whether you're catching the game on one of our 26 HDTVs or enjoying live music under the stars, there's always a seat at our table.
         </p>
-        <a href="#contact" class="text-gold hover:text-cream transition-colors font-medium inline-flex items-center gap-2 group">
-          Our Story
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
-            <path d="M4 10h12M12 4l6 6-6 6"/>
-          </svg>
-        </a>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="menu.html" class="btn-orange text-base">Explore the Menu</a>
+          <a href="#contact" class="text-orange-hi hover:text-cream transition-colors font-semibold inline-flex items-center gap-2 group">
+            Find Us Downtown
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1"><path d="M4 10h12M12 4l6 6-6 6"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="fade-up">
-        <div class="rounded-xl overflow-hidden shadow-2xl">
-          <img src="assets/patio4.jpg" alt="Front of Fitzgerald's Irish Tavern building showing the iconic logo sign" class="w-full h-auto object-cover" loading="lazy">
+      <div class="reveal order-1 md:order-2">
+        <div class="relative">
+          <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-orange/50 rounded-tl-2xl hidden sm:block"></div>
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-orange/50 rounded-br-2xl hidden sm:block"></div>
+          <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <img src="assets/patio4.jpg" alt="Front of the Fitzgerald's Irish Tavern building in downtown New Port Richey showing the iconic logo sign" class="w-full h-auto object-cover" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-
   <!-- ════════════════ MENU HIGHLIGHTS ════════════════ -->
-  <section class="bg-dark-surface texture-overlay py-24 sm:py-32">
+  <section class="bg-bg-surface texture py-24 sm:py-32">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">From Our Kitchen</h2>
-        <div class="celtic-divider">
-          <div class="line"></div>
-          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-          </svg>
-          <div class="line"></div>
+      <div class="text-center mb-16 reveal">
+        <p class="eyebrow mb-4">From Our Kitchen</p>
+        <h2 class="font-display font-800 text-3xl sm:text-4xl lg:text-5xl text-cream mb-7">Pub Plates Worth the Trip</h2>
+        <div class="knot-divider">
+          <span class="rule"></span>
+          <svg class="knot-svg" viewBox="0 0 360 96" width="94" height="25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#celtic-knot"/></svg>
+          <span class="rule rev"></span>
         </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
         <!-- Fish & Chips -->
-        <div class="menu-card bg-dark rounded-xl overflow-hidden shadow-lg fade-up">
-          <div class="overflow-hidden h-56">
-            <img src="assets/fish-chips.webp" alt="Beer-battered fish and chips with tartar sauce" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display font-700 text-xl text-gold">Fish &amp; Chips</h3>
-              <span class="font-display text-gold text-lg">$15</span>
+        <article class="menu-card bg-bg-deep rounded-2xl overflow-hidden shadow-lg reveal">
+          <div class="img-wrap h-60"><img src="assets/fish-chips.webp" alt="Beer-battered Icelandic haddock fish and chips with house tartar and coleslaw" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-7">
+            <div class="flex justify-between items-baseline gap-3 mb-3">
+              <h3 class="font-display font-700 text-xl text-cream">Fish &amp; Chips</h3>
+              <span class="font-display font-700 text-orange text-xl whitespace-nowrap">$15</span>
             </div>
-            <p class="text-text-light text-sm leading-relaxed">Beer-battered Icelandic haddock, golden fries, house tartar &amp; coleslaw</p>
+            <p class="text-text-light/85 text-sm leading-relaxed">Beer-battered Icelandic haddock, golden fries, house tartar &amp; coleslaw.</p>
           </div>
-        </div>
+        </article>
 
         <!-- Shepherd's Pie -->
-        <div class="menu-card bg-dark rounded-xl overflow-hidden shadow-lg fade-up" style="transition-delay: 0.1s;">
-          <div class="overflow-hidden h-56">
-            <img src="stock/shepards-pie.webp" alt="Classic shepherd's pie with mashed potato topping" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display font-700 text-xl text-gold">Shepherd's Pie</h3>
-              <span class="font-display text-gold text-lg">$13</span>
+        <article class="menu-card bg-bg-deep rounded-2xl overflow-hidden shadow-lg reveal" style="transition-delay: 0.1s;">
+          <div class="img-wrap h-60"><img src="stock/shepards-pie.webp" alt="Classic shepherd's pie with seasoned lamb and creamy mashed potato topping" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-7">
+            <div class="flex justify-between items-baseline gap-3 mb-3">
+              <h3 class="font-display font-700 text-xl text-cream">Shepherd's Pie</h3>
+              <span class="font-display font-700 text-orange text-xl whitespace-nowrap">$13</span>
             </div>
-            <p class="text-text-light text-sm leading-relaxed">Classic Irish comfort &mdash; seasoned lamb and vegetables topped with creamy mashed potatoes, finished with rich Guinness gravy</p>
+            <p class="text-text-light/85 text-sm leading-relaxed">Seasoned lamb and vegetables under creamy mashed potatoes, finished with rich Guinness gravy.</p>
           </div>
-        </div>
+        </article>
 
         <!-- Wings -->
-        <div class="menu-card bg-dark rounded-xl overflow-hidden shadow-lg fade-up" style="transition-delay: 0.2s;">
-          <div class="overflow-hidden h-56">
-            <img src="assets/fitzies-wings.jpg" alt="Fitzgerald's famous wings with sauce options" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display font-700 text-xl text-gold">Fitzies Wings</h3>
-              <span class="font-display text-gold text-lg">$8</span>
+        <article class="menu-card bg-bg-deep rounded-2xl overflow-hidden shadow-lg reveal" style="transition-delay: 0.2s;">
+          <div class="img-wrap h-60"><img src="assets/fitzies-wings.jpg" alt="Fitzgerald's famous wings tossed in sauce" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-7">
+            <div class="flex justify-between items-baseline gap-3 mb-3">
+              <h3 class="font-display font-700 text-xl text-cream">Fitzies Wings</h3>
+              <span class="font-display font-700 text-orange text-xl whitespace-nowrap">$8</span>
             </div>
-            <p class="text-text-light text-sm leading-relaxed">Our famous wings tossed in your choice of mild, hot, BBQ, honey BBQ, blackened, or mango habanero</p>
+            <p class="text-text-light/85 text-sm leading-relaxed">Famous wings tossed in mild, hot, BBQ, honey BBQ, blackened, or mango habanero.</p>
           </div>
-        </div>
+        </article>
       </div>
 
-      <div class="text-center mt-12 fade-up">
-        <a href="menu.html" class="text-gold hover:text-cream transition-colors font-semibold text-lg inline-flex items-center gap-2 group">
+      <div class="text-center mt-14 reveal">
+        <a href="menu.html" class="btn-orange text-base">
           View Full Menu
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
-            <path d="M4 10h12M12 4l6 6-6 6"/>
-          </svg>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M12 4l6 6-6 6"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-
-  <!-- ════════════════ GALLERY / ATMOSPHERE ════════════════ -->
-  <section id="gallery" class="bg-cream py-24 sm:py-32">
+  <!-- ════════════════ BENTO GALLERY ════════════════ -->
+  <section id="gallery" class="bg-bg-deep texture py-24 sm:py-32">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <h2 class="font-display font-700 text-3xl sm:text-4xl text-dark-text mb-4">The Fitzperience</h2>
-        <div class="celtic-divider">
-          <div class="line" style="background: #1a5c38;"></div>
-          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
-            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
-            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
-            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#1a5c38" stroke-width="1" fill="none"/>
-          </svg>
-          <div class="line" style="background: #1a5c38;"></div>
+      <div class="md:flex md:items-end md:justify-between mb-14 reveal">
+        <div>
+          <p class="eyebrow mb-4">The Fitzperience</p>
+          <h2 class="font-display font-800 text-3xl sm:text-4xl lg:text-5xl text-cream leading-tight">Where the Craic Is Always Good</h2>
         </div>
+        <div class="hidden md:block w-64 mt-4 settle-line" aria-hidden="true"></div>
       </div>
 
-      <div class="bento-grid fade-up">
-        <div class="bento-item" style="min-height: 320px;">
-          <img src="assets/interior3.jpg" alt="Group of friends enjoying drinks at Fitzgerald's bar with Guinness signs" loading="lazy">
-        </div>
-        <div class="bento-item" style="min-height: 180px;">
-          <img src="assets/interior2.jpg" alt="Sports fans watching the game at the bar" loading="lazy">
-        </div>
-        <div class="bento-item" style="min-height: 180px;">
-          <img src="assets/guiness.jpg" alt="Guinness on tap at Fitzgerald's" loading="lazy">
-        </div>
-        <div class="bento-item" style="min-height: 180px;">
-          <img src="assets/interior4.jpg" alt="Regulars enjoying drinks at the bar" loading="lazy">
-        </div>
-        <div class="bento-item" style="min-height: 180px;">
-          <img src="assets/fitz-bartenders.jpg" alt="Fitzgerald's bartenders serving up drinks" loading="lazy">
-        </div>
+      <div class="bento-grid reveal">
+        <figure class="bento-item b1">
+          <img src="assets/interior3.jpg" alt="Friends enjoying drinks at the Fitzgerald's bar beneath Guinness signs" loading="lazy">
+          <figcaption class="bento-cap">The Main Bar</figcaption>
+        </figure>
+        <figure class="bento-item b2">
+          <img src="assets/patio2.jpg" alt="Outdoor patio seating at Fitzgerald's Irish Tavern" loading="lazy">
+          <figcaption class="bento-cap">The Patio</figcaption>
+        </figure>
+        <figure class="bento-item b3">
+          <img src="assets/guiness.jpg" alt="A freshly poured pint of Guinness on tap" loading="lazy">
+          <figcaption class="bento-cap">Fresh Pints</figcaption>
+        </figure>
+        <figure class="bento-item b4">
+          <img src="assets/interior2.jpg" alt="Sports fans watching the game on the HDTVs at the bar" loading="lazy">
+          <figcaption class="bento-cap">Game Day</figcaption>
+        </figure>
+        <figure class="bento-item b5">
+          <img src="assets/fitz-bartenders.jpg" alt="The Fitzgerald's bartenders serving up drinks" loading="lazy">
+          <figcaption class="bento-cap">Our Crew</figcaption>
+        </figure>
+        <figure class="bento-item b6">
+          <img src="assets/interior4.jpg" alt="Regulars gathered together enjoying drinks at the tavern" loading="lazy">
+          <figcaption class="bento-cap">The Regulars</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-
   <!-- ════════════════ REVIEWS ════════════════ -->
-  <section class="bg-dark texture-overlay py-24 sm:py-32">
+  <section class="bg-bg-surface texture py-24 sm:py-32">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <h2 class="font-display font-700 text-3xl sm:text-4xl text-gold mb-4">What People Are Saying</h2>
-        <div class="celtic-divider">
-          <div class="line"></div>
-          <svg class="knot" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C12 2 8 6 8 8C8 10 10 12 12 10C14 12 16 10 16 8C16 6 12 2 12 2Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-            <path d="M2 12C2 12 6 8 8 8C10 8 12 10 10 12C12 14 10 16 8 16C6 16 2 12 2 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-            <path d="M12 22C12 22 16 18 16 16C16 14 14 12 12 14C10 12 8 14 8 16C8 18 12 22 12 22Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-            <path d="M22 12C22 12 18 16 16 16C14 16 12 14 14 12C12 10 14 8 16 8C18 8 22 12 22 12Z" stroke="#c8a951" stroke-width="1" fill="none"/>
-          </svg>
-          <div class="line"></div>
+      <div class="text-center mb-16 reveal">
+        <p class="eyebrow mb-4">4.5★ · 500+ Reviews</p>
+        <h2 class="font-display font-800 text-3xl sm:text-4xl lg:text-5xl text-cream mb-7">What People Are Saying</h2>
+        <div class="knot-divider">
+          <span class="rule"></span>
+          <svg class="knot-svg" viewBox="0 0 360 96" width="94" height="25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#celtic-knot"/></svg>
+          <span class="rule rev"></span>
         </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Review 1 -->
-        <div class="bg-dark-surface rounded-xl p-8 relative fade-up">
-          <span class="review-quote">&ldquo;</span>
-          <p class="text-text-light italic leading-relaxed mt-6 mb-6">An absolute gem in downtown NPR. The fish and chips are the best I've ever had, and the staff treats you like family. Kenna and Koral are amazing!</p>
+        <article class="review-card glass rounded-2xl p-8 relative reveal">
+          <span class="quote-glyph">&ldquo;</span>
+          <div class="flex gap-0.5 mb-4 mt-2 text-orange">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg>
+          </div>
+          <p class="text-text-light leading-relaxed mb-6">An absolute gem in downtown NPR. The fish and chips are the best I've ever had, and the staff treats you like family. Kenna and Koral are amazing!</p>
           <div class="flex items-center gap-3">
-            <div class="w-8 h-0.5 bg-gold"></div>
+            <div class="w-8 h-0.5 bg-orange"></div>
             <div>
-              <p class="text-cream font-medium text-sm">Sarah M.</p>
-              <p class="text-gold/60 text-xs">Yelp</p>
+              <p class="text-cream font-semibold text-sm">Sarah M.</p>
+              <p class="text-orange/70 text-xs">Yelp</p>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- Review 2 -->
-        <div class="bg-dark-surface rounded-xl p-8 relative fade-up" style="transition-delay: 0.1s;">
-          <span class="review-quote">&ldquo;</span>
-          <p class="text-text-light italic leading-relaxed mt-6 mb-6">Truly an authentic Irish tavern experience. The Mulligan stew and Shepherd's pie are incredible. Great craft cocktails too &mdash; the Moscow mule is perfect.</p>
+        <article class="review-card glass rounded-2xl p-8 relative reveal" style="transition-delay: 0.1s;">
+          <span class="quote-glyph">&ldquo;</span>
+          <div class="flex gap-0.5 mb-4 mt-2 text-orange">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg>
+          </div>
+          <p class="text-text-light leading-relaxed mb-6">Truly an authentic Irish tavern experience. The Mulligan stew and Shepherd's pie are incredible. Great craft cocktails too &mdash; the Moscow mule is perfect.</p>
           <div class="flex items-center gap-3">
-            <div class="w-8 h-0.5 bg-gold"></div>
+            <div class="w-8 h-0.5 bg-orange"></div>
             <div>
-              <p class="text-cream font-medium text-sm">Mike R.</p>
-              <p class="text-gold/60 text-xs">TripAdvisor</p>
+              <p class="text-cream font-semibold text-sm">Mike R.</p>
+              <p class="text-orange/70 text-xs">TripAdvisor</p>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- Review 3 -->
-        <div class="bg-dark-surface rounded-xl p-8 relative fade-up" style="transition-delay: 0.2s;">
-          <span class="review-quote">&ldquo;</span>
-          <p class="text-text-light italic leading-relaxed mt-6 mb-6">Our go-to spot for every game day. 26 TVs, cold beer, and the best wings in town. We've been regulars for 10 years and it never disappoints.</p>
+        <article class="review-card glass rounded-2xl p-8 relative reveal" style="transition-delay: 0.2s;">
+          <span class="quote-glyph">&ldquo;</span>
+          <div class="flex gap-0.5 mb-4 mt-2 text-orange">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 17.8 5.8 20.6l1.6-6.7L2.2 9.4l6.9-.6z"/></svg>
+          </div>
+          <p class="text-text-light leading-relaxed mb-6">Our go-to spot for every game day. 26 TVs, cold beer, and the best wings in town. We've been regulars for 10 years and it never disappoints.</p>
           <div class="flex items-center gap-3">
-            <div class="w-8 h-0.5 bg-gold"></div>
+            <div class="w-8 h-0.5 bg-orange"></div>
             <div>
-              <p class="text-cream font-medium text-sm">Dave L.</p>
-              <p class="text-gold/60 text-xs">Google</p>
+              <p class="text-cream font-semibold text-sm">Dave L.</p>
+              <p class="text-orange/70 text-xs">Google</p>
             </div>
           </div>
-        </div>
+        </article>
       </div>
 
-      <!-- Read More Reviews Button -->
-      <div class="text-center mt-12 fade-up">
-        <a href="https://www.google.com/maps/place/Fitzgerald's+Irish+Tavern/@28.2443,-82.7194,17z/" target="_blank" rel="noopener noreferrer" class="btn-outline inline-flex items-center gap-2">
+      <div class="text-center mt-14 reveal">
+        <a href="https://www.google.com/maps/place/Fitzgerald's+Irish+Tavern/@28.2443,-82.7194,17z/" target="_blank" rel="noopener noreferrer" class="btn-ghost inline-flex">
           Read More Reviews
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
         </a>
@@ -718,152 +720,165 @@
     </div>
   </section>
 
-
   <!-- ════════════════ EVENTS & ENTERTAINMENT ════════════════ -->
-  <section id="events" class="bg-dark-surface texture-overlay py-24 sm:py-32">
+  <section id="events" class="bg-bg-deep texture py-24 sm:py-32">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div class="fade-up order-2 md:order-1">
-        <div class="gold-bar"></div>
-        <h2 class="font-display font-700 text-3xl sm:text-4xl text-cream leading-snug mb-8">
-          More Than Just <span class="text-gold">a Pub</span>
+      <div class="reveal order-2 md:order-1">
+        <p class="eyebrow mb-4">Events &amp; Entertainment</p>
+        <h2 class="font-display font-800 text-3xl sm:text-4xl lg:text-5xl text-cream leading-[1.15] mb-7">
+          More Than Just <span class="text-orange">a Pub</span>
         </h2>
-        <ul class="space-y-4 mb-10">
-          <li class="flex items-start gap-3 text-text-light text-lg">
-            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
-            Live music &amp; entertainment
+        <ul class="space-y-5 mb-10">
+          <li class="feat-item flex items-start gap-4">
+            <span class="feat-icon text-orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+            </span>
+            <div>
+              <p class="text-cream font-semibold text-lg">Live Music &amp; Entertainment</p>
+              <p class="text-text-light/75 text-sm">Local and touring artists, weekly.</p>
+            </div>
           </li>
-          <li class="flex items-start gap-3 text-text-light text-lg">
-            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
-            Trivia nights
+          <li class="feat-item flex items-start gap-4">
+            <span class="feat-icon text-orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 8v4l3 2"/><path d="M9 3h6"/></svg>
+            </span>
+            <div>
+              <p class="text-cream font-semibold text-lg">Trivia Nights</p>
+              <p class="text-text-light/75 text-sm">Bring the crew and put your knowledge to the test.</p>
+            </div>
           </li>
-          <li class="flex items-start gap-3 text-text-light text-lg">
-            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
-            All major sports packages on 26 HDTVs
+          <li class="feat-item flex items-start gap-4">
+            <span class="feat-icon text-orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </span>
+            <div>
+              <p class="text-cream font-semibold text-lg">Every Game on 26 HDTVs</p>
+              <p class="text-text-light/75 text-sm">NFL, college, UFC, soccer &mdash; all the major sports packages.</p>
+            </div>
           </li>
-          <li class="flex items-start gap-3 text-text-light text-lg">
-            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
-            Private event spaces &mdash; from birthdays to corporate gatherings
+          <li class="feat-item flex items-start gap-4">
+            <span class="feat-icon text-orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </span>
+            <div>
+              <p class="text-cream font-semibold text-lg">Private Event Spaces</p>
+              <p class="text-text-light/75 text-sm">From birthdays to corporate gatherings.</p>
+            </div>
           </li>
-          <li class="flex items-start gap-3 text-text-light text-lg">
-            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C10 2 7.5 5 7.5 6.5C7.5 8 9 9 10 8C11 9 12.5 8 12.5 6.5C12.5 5 10 2 10 2Z"/><path d="M2 10C2 10 5 7.5 6.5 7.5C8 7.5 9 9 8 10C9 11 8 12.5 6.5 12.5C5 12.5 2 10 2 10Z"/><path d="M10 18C10 18 12.5 15 12.5 13.5C12.5 12 11 11 10 12C9 11 7.5 12 7.5 13.5C7.5 15 10 18 10 18Z"/><path d="M18 10C18 10 15 12.5 13.5 12.5C12 12.5 11 11 12 10C11 9 12 7.5 13.5 7.5C15 7.5 18 10 18 10Z"/></svg>
-            Annual Finnegan's Wake celebration &mdash; our legendary St. Patrick's Day tradition
+          <li class="feat-item flex items-start gap-4">
+            <span class="feat-icon text-orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22V12a7 7 0 0114 0v10"/><path d="M3 22h18"/><path d="M12 12v-3a3 3 0 013-3"/></svg>
+            </span>
+            <div>
+              <p class="text-cream font-semibold text-lg">Finnegan's Wake Celebration</p>
+              <p class="text-text-light/75 text-sm">Our legendary St. Patrick's Day tradition, every year.</p>
+            </div>
           </li>
         </ul>
-        <a href="events.html" class="btn-gold">See What's Coming Up</a>
+        <a href="events.html" class="btn-orange text-base">
+          See What's Coming Up
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M12 4l6 6-6 6"/></svg>
+        </a>
       </div>
-      <div class="fade-up order-1 md:order-2">
-        <div class="rounded-xl overflow-hidden shadow-2xl">
-          <img src="assets/patio3.jpg" alt="Massive St. Patrick's Day crowd celebrating at Fitzgerald's" class="w-full h-auto object-cover" loading="lazy">
+      <div class="reveal order-1 md:order-2">
+        <div class="relative">
+          <div class="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-orange/50 rounded-tr-2xl hidden sm:block"></div>
+          <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <img src="assets/patio3.jpg" alt="A large St. Patrick's Day crowd celebrating outside at Fitzgerald's Irish Tavern" class="w-full h-auto object-cover" loading="lazy">
+          </div>
         </div>
       </div>
-
     </div>
   </section>
 
-
-  <!-- ════════════════ CONTACT / HOURS FOOTER ════════════════ -->
-  <section id="contact" class="bg-dark py-24 sm:py-32 border-t border-primary-green/20">
+  <!-- ════════════════ CONTACT / HOURS / FOLLOW ════════════════ -->
+  <footer id="contact" class="bg-bg-surface texture pt-24 sm:pt-28 pb-10 border-t border-green/30">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-12 lg:gap-16 fade-up">
+      <div class="grid md:grid-cols-3 gap-12 lg:gap-16 reveal">
         <!-- Visit Us -->
         <div>
-          <h3 class="font-display font-700 text-2xl text-gold mb-6">Visit Us</h3>
+          <h3 class="font-display font-700 text-2xl text-cream mb-2 flex items-center gap-3">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CB6234" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Visit Us
+          </h3>
+          <div class="accent-rule my-5"></div>
           <address class="not-italic text-text-light leading-relaxed space-y-3">
             <p>5811 Nebraska Ave<br>New Port Richey, FL 34652</p>
-            <p>
-              <a href="tel:+17278169092" class="text-cream hover:text-gold transition-colors">(727) 816-9092</a>
-            </p>
+            <p><a href="tel:+17278169092" class="text-cream hover:text-orange-hi transition-colors font-semibold">(727) 816-9092</a></p>
           </address>
-          <a href="https://maps.google.com/?q=5811+Nebraska+Ave+New+Port+Richey+FL+34652" target="_blank" rel="noopener" class="text-gold hover:text-cream transition-colors font-medium inline-flex items-center gap-2 mt-4 group text-sm">
+          <a href="https://maps.google.com/?q=5811+Nebraska+Ave+New+Port+Richey+FL+34652" target="_blank" rel="noopener" class="text-orange-hi hover:text-cream transition-colors font-medium inline-flex items-center gap-2 mt-5 group text-sm">
             Get Directions
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
-              <path d="M4 10h12M12 4l6 6-6 6"/>
-            </svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1"><path d="M4 10h12M12 4l6 6-6 6"/></svg>
           </a>
         </div>
 
         <!-- Hours -->
         <div>
-          <h3 class="font-display font-700 text-2xl text-gold mb-6">Hours</h3>
-          <div class="space-y-2 text-text-light">
-            <div class="flex justify-between">
-              <span>Monday &ndash; Wednesday</span>
-              <span class="text-cream">11AM &ndash; 12AM</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Thursday &ndash; Saturday</span>
-              <span class="text-cream">11AM &ndash; 2AM</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Sunday</span>
-              <span class="text-cream">11AM &ndash; 12AM</span>
-            </div>
+          <h3 class="font-display font-700 text-2xl text-cream mb-2 flex items-center gap-3">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CB6234" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            Hours
+          </h3>
+          <div class="accent-rule my-5"></div>
+          <div class="space-y-2.5 text-text-light">
+            <div class="flex justify-between"><span>Monday &ndash; Wednesday</span><span class="text-cream font-medium">11AM &ndash; 12AM</span></div>
+            <div class="flex justify-between"><span>Thursday &ndash; Saturday</span><span class="text-cream font-medium">11AM &ndash; 2AM</span></div>
+            <div class="flex justify-between"><span>Sunday</span><span class="text-cream font-medium">11AM &ndash; 12AM</span></div>
           </div>
           <p class="text-text-light/60 text-sm mt-4 italic">Kitchen open until 10pm Sun&ndash;Thu, midnight Fri&ndash;Sat</p>
         </div>
 
         <!-- Follow Us -->
         <div>
-          <h3 class="font-display font-700 text-2xl text-gold mb-6">Follow Us</h3>
+          <h3 class="font-display font-700 text-2xl text-cream mb-2 flex items-center gap-3">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CB6234" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>
+            Follow Us
+          </h3>
+          <div class="accent-rule my-5"></div>
           <div class="flex gap-4 mb-6">
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-primary-green/30 flex items-center justify-center text-cream hover:bg-gold hover:text-dark transition-all duration-300" aria-label="Facebook">
+            <a href="https://www.facebook.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-green/30 flex items-center justify-center text-cream hover:bg-orange hover:text-white transition-all duration-300 cursor-pointer" aria-label="Fitzgerald's on Facebook">
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-primary-green/30 flex items-center justify-center text-cream hover:bg-gold hover:text-dark transition-all duration-300" aria-label="Instagram">
+            <a href="https://www.instagram.com/fitzgeraldsirishtavern/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-green/30 flex items-center justify-center text-cream hover:bg-orange hover:text-white transition-all duration-300 cursor-pointer" aria-label="Fitzgerald's on Instagram">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
             </a>
           </div>
-          <p class="text-text-light text-sm leading-relaxed">Tag us <span class="text-gold">@fitzgeraldsirishtavern</span> for a chance to be featured!</p>
+          <p class="text-text-light text-sm leading-relaxed">Tag us <span class="text-orange-hi font-medium">@fitzgeraldsirishtavern</span> for a chance to be featured!</p>
         </div>
       </div>
 
-      <!-- Divider -->
-      <div class="border-t border-gold/20 mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <!-- Bottom bar -->
+      <div class="border-t border-orange/15 mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p class="text-text-light/50 text-sm">&copy; 2026 Fitzgerald's Irish Tavern. All rights reserved.</p>
-        <p class="text-text-light/40 text-sm">
-          Website by <a href="https://onpointfl.com" target="_blank" rel="noopener" class="text-gold/60 hover:text-gold transition-colors">On Point Digital Studio</a>
+        <p class="text-text-light/45 text-sm">
+          Website by <a href="https://onpointfl.com" target="_blank" rel="noopener" class="text-orange/70 hover:text-orange-hi transition-colors">On Point Digital Studio</a>
         </p>
       </div>
     </div>
-  </section>
-
+  </footer>
 
   <!-- ════════════════ SCRIPTS ════════════════ -->
   <script>
+    // ── Preloader ──
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('preloader').classList.add('loaded'), 500);
+    });
+    setTimeout(() => document.getElementById('preloader').classList.add('loaded'), 3500); // safety
+
     // ── Position nav below top bar ──
     const topBar = document.getElementById('topBar');
     const nav = document.getElementById('mainNav');
-    function syncNavPosition() {
-      const topBarHeight = topBar.offsetHeight;
-      nav.style.top = topBarHeight + 'px';
-    }
+    function syncNavPosition() { nav.style.top = topBar.offsetHeight + 'px'; }
     syncNavPosition();
     window.addEventListener('resize', syncNavPosition);
 
-    // ── Nav scroll effect ──
+    // ── Nav scroll state ──
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
-
-    // ── Hero parallax ──
-    const heroBg = document.getElementById('heroBg');
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      if (scrolled < window.innerHeight) {
-        heroBg.style.transform = `translateY(${scrolled * 0.35}px)`;
-      }
+      nav.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // ── Mobile menu ──
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    const mobileOverlay = document.getElementById('mobileOverlay');
     const hamTop = document.getElementById('ham-top');
     const hamMid = document.getElementById('ham-mid');
     const hamBot = document.getElementById('ham-bot');
@@ -873,7 +888,7 @@
       menuOpen = !menuOpen;
       if (menuOpen) {
         mobileMenu.classList.add('open');
-        mobileOverlay.classList.remove('hidden');
+        hamburger.setAttribute('aria-expanded', 'true');
         hamTop.style.transform = 'rotate(45deg) translate(4px, 4px)';
         hamMid.style.opacity = '0';
         hamBot.style.transform = 'rotate(-45deg) translate(4px, -4px)';
@@ -886,27 +901,60 @@
     function closeMobile() {
       menuOpen = false;
       mobileMenu.classList.remove('open');
-      mobileOverlay.classList.add('hidden');
+      hamburger.setAttribute('aria-expanded', 'false');
       hamTop.style.transform = '';
       hamMid.style.opacity = '';
       hamBot.style.transform = '';
       document.body.style.overflow = '';
     }
 
-    // ── Intersection Observer for fade-in ──
-    const observer = new IntersectionObserver((entries) => {
+    // ── Scroll reveal + knot draw + settle line ──
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .knot-divider.draw, .settle-line').forEach(el => revealObserver.observe(el));
+
+    // ── Animated counters ──
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        counterObserver.unobserve(el);
+        const target = parseFloat(el.dataset.target);
+        const decimals = parseInt(el.dataset.decimals || '0', 10);
+        const suffix = el.dataset.suffix || '';
+        const numEl = el.querySelector('.num');
+        const sufEl = el.querySelector('.suf');
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced) {
+          numEl.textContent = target.toFixed(decimals);
+          if (sufEl) sufEl.textContent = suffix;
+          return;
+        }
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          numEl.textContent = (target * eased).toFixed(decimals);
+          if (p < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            numEl.textContent = target.toFixed(decimals);
+            if (sufEl) sufEl.textContent = suffix;
+          }
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
   </script>
 
 </body>
