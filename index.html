@@ -105,7 +105,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -124,7 +124,7 @@
             'tan':          '#F2E8D9',
           },
           fontFamily: {
-            'display': ['"Playfair Display"', 'serif'],
+            'display': ['"Vollkorn"', 'serif'],
             'body':    ['"DM Sans"', 'sans-serif'],
           },
         },
@@ -168,7 +168,7 @@
     .preloader__mark { width: 78px; height: 78px; animation: spin-soft 2.4s ease-in-out infinite; }
     @keyframes spin-soft { 0%,100% { transform: rotate(-8deg) scale(1); } 50% { transform: rotate(8deg) scale(1.06); } }
     .preloader__word {
-      font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.5rem;
+      font-family: 'Vollkorn', serif; font-weight: 800; font-size: 1.5rem;
       color: var(--cream); letter-spacing: 0.04em;
     }
     .preloader__bar {
@@ -198,12 +198,15 @@
     .nav-bar.scrolled .logo-name { fill: var(--text-dark) !important; }
     /* Hamburger bars go dark when scrolled */
     .nav-bar.scrolled .ham-bar { background-color: var(--text-dark); }
+    /* nav links use the display font */
+    #mainNav a.nav-link, #mainNav a[aria-current="page"] { font-family: 'Vollkorn', serif; }
 
     /* ── Hero ── */
     .hero-section { position: relative; overflow: hidden; }
     .hero-bg {
       position: absolute; inset: -8%; width: 116%; height: 116%;
-      background: url('assets/Fitz_hero_v2.jpeg') center 40% / cover no-repeat;
+      max-width: none; max-height: none;
+      object-fit: cover; object-position: center 45%;
       transform: translateZ(0); will-change: transform;
       animation: kenBurns 18s ease-in-out infinite alternate;
     }
@@ -213,7 +216,7 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: rgba(28,46,32,0.80);
+      background: rgba(0,0,0,0.60);
     }
     .hero-heading { text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 6px 38px rgba(0,0,0,0.6); }
 
@@ -283,14 +286,12 @@
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.45);
     }
-    .stat-num { font-family: 'Playfair Display', serif; font-weight: 800; color: var(--cream); line-height: 1; }
+    .stat-num { font-family: 'Vollkorn', serif; font-weight: 800; color: var(--cream); line-height: 1; }
 
     /* ── Hero marquee ── */
     .hero-marquee { position:absolute; bottom:0; left:0; width:100%; z-index:20; overflow:hidden;
-      background:rgba(13,24,18,0.55); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-      border-top:1px solid rgba(253,111,47,0.30); padding:13px 0;
-      -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
-      mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+      background:var(--green);
+      border-top:1px solid rgba(253,111,47,0.30); padding:13px 0; }
     .marquee-track { display:flex; width:max-content; animation:marqueeScroll 40s linear infinite; }
     .hero-marquee:hover .marquee-track { animation-play-state:paused; }
     .marquee-item { display:inline-flex; align-items:center; gap:10px; padding:0 26px; color:var(--cream);
@@ -365,7 +366,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
     .review-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.10); border-color: rgba(253,111,47,0.35); }
-    .quote-glyph { font-family: 'Playfair Display', serif; font-size: 4.5rem; line-height: 0.6; color: var(--orange); opacity: 0.35; }
+    .quote-glyph { font-family: 'Vollkorn', serif; font-size: 4.5rem; line-height: 0.6; color: var(--orange); opacity: 0.35; }
 
     /* ── Feature list (events) ── */
     .feat-item { transition: transform 0.3s ease; }
@@ -481,7 +482,7 @@
               </g>
             </g>
           </svg>
-          <text x="52" y="26" font-family="'Playfair Display', serif" font-weight="700" font-size="24" fill="#FFFBF5" class="logo-name">Fitzgerald's</text>
+          <text x="52" y="26" font-family="'Vollkorn', serif" font-weight="700" font-size="24" fill="#FFFBF5" class="logo-name">Fitzgerald's</text>
           <text x="58" y="44" font-family="'DM Sans', sans-serif" font-weight="700" font-size="11" fill="#fd6f2f" letter-spacing="3">IRISH TAVERN</text>
         </svg>
       </a>
@@ -521,12 +522,14 @@
   <!-- ════════════════ HERO ════════════════ -->
   <span id="top"></span>
   <section class="hero-section min-h-screen flex items-center justify-center relative pt-28 pb-28 sm:pb-28">
-    <div class="hero-bg" id="heroBg"></div>
+    <video class="hero-bg" id="heroBg" autoplay muted loop playsinline poster="assets/Fitz-hero.jpg">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
 
     <div class="relative z-10 text-center px-6 max-w-4xl">
       <p class="font-body text-sm md:text-base tracking-[0.3em] uppercase mb-5 hero-heading text-center" style="color: #ffffff; font-weight: 800; letter-spacing: 0.3em; text-shadow: 0 2px 12px rgba(0,0,0,0.8);">Est. 2004<span class="hidden sm:inline"> · </span><br class="sm:hidden">Downtown New Port Richey</p>
-      <h1 class="font-display font-900 text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1.0] mb-6 hero-heading" style="color: var(--orange);">
+      <h1 class="font-display font-900 text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1.0] mb-6 hero-heading" style="color: #ffffff; font-weight: 800;">
         Fitzgerald's
       </h1>
       <p class="font-body text-cream text-lg sm:text-xl md:text-2xl mb-9 tracking-wide max-w-2xl mx-auto" style="text-shadow: 0 1px 3px rgba(0,0,0,0.95), 0 2px 14px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.7);">

@@ -107,7 +107,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -126,7 +126,7 @@
             'tan':          '#F2E8D9',
           },
           fontFamily: {
-            'display': ['"Playfair Display"', 'serif'],
+            'display': ['"Vollkorn"', 'serif'],
             'body': ['"DM Sans"', 'sans-serif'],
           },
         },
@@ -170,7 +170,7 @@
     .preloader__mark { width: 78px; height: 78px; animation: spin-soft 2.4s ease-in-out infinite; }
     @keyframes spin-soft { 0%,100% { transform: rotate(-8deg) scale(1); } 50% { transform: rotate(8deg) scale(1.06); } }
     .preloader__word {
-      font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.5rem;
+      font-family: 'Vollkorn', serif; font-weight: 800; font-size: 1.5rem;
       color: var(--cream); letter-spacing: 0.04em;
     }
     .preloader__bar {
@@ -197,6 +197,8 @@
     .nav-bar.scrolled .nav-link:hover { color: var(--orange); }
     .nav-bar.scrolled .logo-name { fill: var(--text-dark) !important; }
     .nav-bar.scrolled .ham-bar { background-color: var(--text-dark); }
+    /* nav links use the display font */
+    #mainNav a.nav-link, #mainNav a[aria-current="page"] { font-family: 'Vollkorn', serif; }
 
     /* ── Menu page hero (compact) ── */
     .menu-hero { position: relative; overflow: hidden; }
@@ -277,7 +279,7 @@
       margin: 0 12px; min-width: 20px;
       align-self: flex-end; margin-bottom: 6px;
     }
-    .item-price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--orange); white-space: nowrap; }
+    .item-price { font-family: 'Vollkorn', serif; font-weight: 700; color: var(--orange); white-space: nowrap; }
 
     /* ── Dark-green feature section (scoped overrides) ── */
     .section-dark { background-color: var(--dark) !important; }
@@ -421,7 +423,7 @@
               </g>
             </g>
           </svg>
-          <text x="52" y="26" font-family="'Playfair Display', serif" font-weight="700" font-size="24" fill="#FFFBF5" class="logo-name">Fitzgerald's</text>
+          <text x="52" y="26" font-family="'Vollkorn', serif" font-weight="700" font-size="24" fill="#FFFBF5" class="logo-name">Fitzgerald's</text>
           <text x="58" y="44" font-family="'DM Sans', sans-serif" font-weight="700" font-size="11" fill="#fd6f2f" letter-spacing="3">IRISH TAVERN</text>
         </svg>
       </a>
