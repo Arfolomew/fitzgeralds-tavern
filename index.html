@@ -205,8 +205,7 @@
     .hero-section { position: relative; overflow: hidden; }
     .hero-bg {
       position: absolute; inset: -8%; width: 116%; height: 116%;
-      max-width: none; max-height: none;
-      object-fit: cover; object-position: center 45%;
+      background: url('assets/Fitz-hero.jpg') center 45% / cover no-repeat;
       transform: translateZ(0); will-change: transform;
       animation: kenBurns 18s ease-in-out infinite alternate;
     }
@@ -522,9 +521,7 @@
   <!-- ════════════════ HERO ════════════════ -->
   <span id="top"></span>
   <section class="hero-section min-h-screen flex items-center justify-center relative pt-28 pb-28 sm:pb-28">
-    <video class="hero-bg" id="heroBg" autoplay muted loop playsinline poster="assets/Fitz-hero.jpg">
-      <source src="assets/hero-loop.mp4" type="video/mp4">
-    </video>
+    <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
 
     <div class="relative z-10 text-center px-6 max-w-4xl">
@@ -536,12 +533,6 @@
         Cold pints, Irish pub fare, live music, and every game on 26 HDTVs &mdash; the heart of downtown for two decades.
       </p>
 
-      <!-- Celtic knot interlace divider -->
-      <div class="knot-divider knot-hero mb-10" aria-hidden="true">
-        <span class="rule"></span>
-        <svg class="knot-svg" viewBox="0 0 360 96" width="94" height="25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#celtic-knot"/></svg>
-        <span class="rule rev"></span>
-      </div>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="menu.html" class="btn-orange text-base w-full sm:w-auto">
