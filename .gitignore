@@ -3,3 +3,35 @@
 # These are On Point's internal client documents, not site content.
 agreement.html
 pitch-sheet.html
+
+# ═══════════════════════════════════════════════════════════════════════
+# ⚠️  NEVER COMMIT — Cloudflare Pages serves EVERY file in this repo, so
+# anything committed becomes publicly downloadable at <domain>/<path>.
+# Internal docs belong in:
+#   ~/Desktop/Projects/OnPoint/Local Business Docs Don't Push/clients/<client>/
+# NOT in the site repo. These rules are the safety net, not the plan.
+# ═══════════════════════════════════════════════════════════════════════
+**/agreement.html
+**/agreement.md
+**/contract.*
+**/proposal.*
+**/pitch-sheet.*
+**/gameplan.*
+**/research.md
+**/invoice*
+**/quote*
+**/pricing-sheet.*
+**/potential_clients.*
+**/leads*
+**/prospects*
+**/credentials*
+**/site-audit-findings.*
+**/current-progress.*
+**/pitch/
+**/tools/
+Taxes/
+sales-scripts/
+outreach/
+marketing/
+Documentation/
+.env
