@@ -1,0 +1,7 @@
+# Internal On Point client documents — removed from the repo 2026-08-08, but
+# the domain kept serving stale copies after the deploy. These rules force any
+# remaining requests to the homepage so the contents cannot be read.
+/agreement / 301
+/agreement.html / 301
+/pitch-sheet / 301
+/pitch-sheet.html / 301
