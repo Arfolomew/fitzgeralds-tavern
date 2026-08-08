@@ -15,6 +15,7 @@
 - [Home](https://fitzgeraldstavern.com/): Overview, hours, location, reviews
 - [Menu](https://fitzgeraldstavern.com/menu.html): Full food & drink menu
 - [Events](https://fitzgeraldstavern.com/events.html): Live music and event calendar
+- [FAQ](https://fitzgeraldstavern.com/faq.html): Hours, location, reservations, kitchen hours, live music, sports, and private events
 
 ## Highlights
 - Live music weekly

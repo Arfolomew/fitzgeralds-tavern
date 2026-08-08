@@ -1,0 +1,5 @@
+# ⚠️ NEVER COMMIT — Cloudflare Pages serves every file in the repo, so anything
+# committed here is publicly downloadable at fitzgeraldstavern.com/<path>.
+# These are On Point's internal client documents, not site content.
+agreement.html
+pitch-sheet.html
