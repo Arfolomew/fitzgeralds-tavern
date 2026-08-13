@@ -35,3 +35,9 @@ outreach/
 marketing/
 Documentation/
 .env
+
+# Client source assets + local safety backups — never deploy.
+# Raw menu scans from Sherry would otherwise be public at /Fitzgeralds_New_Menu/menu1.png
+Fitzgeralds_New_Menu/
+*.bak-*
+.*.bak-*
